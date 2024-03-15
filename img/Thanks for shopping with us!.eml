@@ -1,0 +1,1492 @@
+Delivered-To: jihongbest@gmail.com
+Received: by 2002:a05:7011:2707:b0:39f:650e:8a95 with SMTP id tl7csp555807mdb;
+        Fri, 15 Dec 2023 08:29:36 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGrLiWZljzUtlzWX4mA90E6nhcWqeg9QRCTOSGs8QMpGuQBGf0aXI8aYrsKFfdbbpyWu9He
+X-Received: by 2002:a05:600c:3103:b0:40c:4b3e:bd08 with SMTP id g3-20020a05600c310300b0040c4b3ebd08mr3905145wmo.92.1702657776075;
+        Fri, 15 Dec 2023 08:29:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1702657776; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aVAFmr+F9y1mJWjh7wRoPTpB7yB4PlzuLB8RiDieM+541Exkcp9VMp6i38xx78YfhH
+         ZgR2EEwq7mWOEC/2ERcYvy06eUEAIf4I6fwByrX0lUhz92xGKd+SrMg05c330mUqp3pk
+         aMMXLuUltCDLLSEyQl/F1jjUKbWWAk0UWi+MvnwFqEg8Fw/bmwKQGATBi6W8c1EdEwb0
+         NsUSunHO5vdTRYvrrq2daTdUePjprAF+PCS6kNJ3WyUWf4l0F3mrI1ScdmuQBOfoKOBZ
+         i62F0DPwFYDcmI21t5W7rY0TlseHAkVuB4JGSb7YeDSLGWXtDKR+OdWNqMTEXgVF/Q9R
+         IyXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:feedback-id:date:subject:to:reply-to:from
+         :mime-version:message-id:dkim-signature:dkim-signature;
+        bh=dV0RV8nyNxy45fs9v7a2lDWJZvDhZAPLwCUyHWotao0=;
+        fh=s7UJXpfIgbdc+O0YUojpBp1RJ4RPY/frBiax3ZidG1k=;
+        b=LRPpQfPtGnvgfmxl7Ai3Gdv22p4XZQa0iBxdWBP5PGZCdnW/032EbS7LVG0JR3wTFO
+         BV/2sAe5DGSnuRRMmuQodQkDXpAkUUrA0gFSAtG3wuck2zgC6XquwBuUJ5wIX3TY0I3i
+         3St1hjmcALrL/M2VJHieRFapLEVkYRyE4MfzIxiM1DDgk+QG3GNQJWRR74XUUEtOY0N0
+         50eaOArpmfXa27GWT2jsHvhUKGsIQJSEn0n7WnyeyHVLJ+Lpevjsfi3Co8a+enUrDkpD
+         q97RQ3IBdxqWKdhqyF6c/9+qkPpAEAaC/almEM15ypZPCK9ZWTLGbRgovpeLrI94VLEv
+         7sHA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@walmart.ca header.s=mailjet header.b=XBXQ9xyE;
+       dkim=pass header.i=@bnc3.mailjet.com header.s=mailjet2 header.b="g/NINhpS";
+       spf=pass (google.com: domain of 5444f288.eaaabpbyf6waaaaaaaaaaiwx-roaaaaa2a0aaaaaabnd1ablfh7v@bnc3.walmart.com designates 185.211.122.23 as permitted sender) smtp.mailfrom=5444f288.EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a0AAAAAABnd1ABlfH7v@bnc3.walmart.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=walmart.ca
+Return-Path: <5444f288.EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a0AAAAAABnd1ABlfH7v@bnc3.walmart.com>
+Received: from o23.p31.mailjet.com (o23.p31.mailjet.com. [185.211.122.23])
+        by mx.google.com with UTF8SMTPS id u6-20020a05600c138600b0040c6d364dd7si577078wmf.129.2023.12.15.08.29.35
+        for <jihongbest@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Dec 2023 08:29:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of 5444f288.eaaabpbyf6waaaaaaaaaaiwx-roaaaaa2a0aaaaaabnd1ablfh7v@bnc3.walmart.com designates 185.211.122.23 as permitted sender) client-ip=185.211.122.23;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@walmart.ca header.s=mailjet header.b=XBXQ9xyE;
+       dkim=pass header.i=@bnc3.mailjet.com header.s=mailjet2 header.b="g/NINhpS";
+       spf=pass (google.com: domain of 5444f288.eaaabpbyf6waaaaaaaaaaiwx-roaaaaa2a0aaaaaabnd1ablfh7v@bnc3.walmart.com designates 185.211.122.23 as permitted sender) smtp.mailfrom=5444f288.EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a0AAAAAABnd1ABlfH7v@bnc3.walmart.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=walmart.ca
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; q=dns/txt;
+  d=walmart.ca; i=noreply@walmart.ca; s=mailjet; x=1702664975;
+  h=message-id:mime-version:from:from:reply-to:to:to:subject:subject:date:date:feedback-id:x-clientmsgid:
+  x-csa-complaints:x-mj-mid:x-report-abuse-to:content-type:content-transfer-encoding;
+  bh=6Ig0eDXDGoPqpIQhskyZGBeEJxINBoQNWuHIDA3qO7M=;
+  b=XBXQ9xyE/+hCeb0KVTj0wkpTnmwpEA+zTyn4y5M4ffEx3WR8147ZpJGGx
+ 1BroPzQazu5yq91WFn2OliX29yLOdSRcJsmMgjksNQHxSWdqWIHx7WBPivqf
+ a6lBQ0yjk2H96JMtm07dy46n4lvwgcpyhjcozlyBtl26O9SowaltK8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; q=dns/txt;
+  d=bnc3.mailjet.com; s=mailjet2; x=1702664975;
+  h=message-id:mime-version:from:from:reply-to:to:to:subject:subject:date:date:feedback-id:x-clientmsgid:
+  x-csa-complaints:x-mj-mid:x-report-abuse-to:content-type:content-transfer-encoding;
+  bh=6Ig0eDXDGoPqpIQhskyZGBeEJxINBoQNWuHIDA3qO7M=;
+  b=g/NINhpSo5rP3IPUvwu4kC4ZJRX0Bg7Ns77bNVa2Xv7lnoELHZ/sj72S1
+ upxx6PyEpURvYXN6hyIrrqWjcJORXVJWqLum6Sa9Y7Mg/5q6jrjTA6FFq7iG
+ NH7LgtebrXoPyOsDQ+rjrnXg3cjzHa/Rkr1ub1NaqDflZiyP6z/sTg=
+Return-Path:
+	<5444f288.EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a0AAAAAABnd1ABlfH7v@bnc3.walmart.com>
+Message-Id: <5444f288.EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a0AAAAAABnd1ABlfH7v@mailjet.com>
+MIME-Version: 1.0
+From: Walmart Canada <noreply@walmart.ca>
+Reply-To: noreply@walmart.ca
+To: jihongbest@gmail.com
+Subject: Thanks for shopping with us!
+Date: Fri, 15 Dec 2023 16:29:35 +0000
+Feedback-Id: 28cf5497-dea9-3029-a9e6-7676d815b619.1695188.1265704:MJ
+X-ClientMsgID: ddf666bc-6629-48a4-ba14-73aa4d72ac37
+X-CSA-Complaints: csa-complaints@eco.de
+X-MJ-Mid:
+	EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a0AAAAAABnd1ABlfH7vOZISBJPZR7y73snCemU2-gATUCg
+X-REPORT-ABUSE-TO: Message sent by Mailjet please report to
+	abuse@mailjet.com with a copy of the message
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office"><head><title></title><!--[if !mso]><!-- --><meta http-equiv=
+=3D"X-UA-Compatible" content=3D"IE=3Dedge"><!--<![endif]--><meta http-equiv=
+=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><meta name=3D"view=
+port" content=3D"width=3Ddevice-width,initial-scale=3D1"><style type=3D"tex=
+t/css">#outlook a{padding:0}body{margin:0;padding:0;-webkit-text-size-adjus=
+t:100%;-ms-text-size-adjust:100%}table,td{border-collapse:collapse;mso-tabl=
+e-lspace:0;mso-table-rspace:0}img{border:0;height:auto;line-height:100%;out=
+line:0;text-decoration:none;-ms-interpolation-mode:bicubic}p{display:block;=
+margin:13px 0}</style><!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]--><!--[if lte mso 11]>
+        <style type=3D"text/css">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]--><style type=3D"text/css">@media only screen and (min-wi=
+dth:480px){.mj-column-per-100{width:100%!important;max-width:100%}.mj-colum=
+n-per-50{width:50%!important;max-width:50%}.mj-column-per-10{width:10%!impo=
+rtant;max-width:10%}.mj-column-per-90{width:90%!important;max-width:90%}.mj=
+-column-per-25{width:25%!important;max-width:25%}}</style><style type=3D"te=
+xt/css">@media only screen and (max-width:480px){table.mj-full-width-mobile=
+{width:100%!important}td.mj-full-width-mobile{width:auto!important}}</style=
+><style type=3D"text/css">@-moz-document url-prefix(){A:focus{outline-style=
+:dotted;outline-color:grey;outline-width:1px}}@media only screen and (max-w=
+idth:480px){.wrapper{border:8px solid #e5f1fc!important}.section-wrapper{pa=
+dding-right:18px!important;padding-left:18px!important}}.imgWidth-0-2056288=
+-1{width:91%!important}.wplusImgWidth-0-2056288-2{width:97%!important}.alig=
+nMobile-0-2056288-3{text-align:-webkit-left!important}@media only screen an=
+d (max-width:480px){.alignMobile-0-2056288-3{text-align:-webkit-center!impo=
+rtant}}@media only screen and (max-width:480px){.listTable-0-2056288-4 tabl=
+e{font-size:14px!important}}@media only screen and (max-width:480px){.listT=
+able-0-2056288-5 table{font-size:14px!important}}@media only screen and (ma=
+x-width:480px){.listTable-0-2056288-6 table{font-size:14px!important}}@medi=
+a only screen and (max-width:480px){.listTable-0-2056288-7 table{font-size:=
+14px!important}}@media only screen and (max-width:480px){.listTable-0-20562=
+88-8 table{font-size:14px!important}}@media only screen and (max-width:480p=
+x){.listTable-0-2056288-9 table{font-size:14px!important}}@media only scree=
+n and (max-width:600px){.footerTitle-0-2056288-10 div{text-align:center}.so=
+cialLinks-0-2056288-11{padding-right:18px!important}.footerColumn-0-2056288=
+-12{width:100%!important;max-width:100%}.footerIcons-0-2056288-13 table{max=
+-width:272px!important}}@media only screen and (min-width:600px) and (max-w=
+idth:700px){.socialLinks-0-2056288-11{padding-right:16px!important}}</style=
+></head><body>
+   <table id=3D"preheader">
+      <tr>
+         <td>
+            <div style=3D"display: none; max-height: 0px; overflow: hidden;=
+">Our team is working on your order and will update soon.</div>
+            <div style=3D"display: none; max-height: 0px; overflow: hidden;=
+"> &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;
+            </div>
+         </td>
+      </tr>
+   </table>
+      <img src=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tracking/=
+openTracker?redirectTo=3D%2BZHhG713rCiPnYzAuiCCiIsIW2nMqyXSGQRy%2Fr%2FwzI%2=
+BAdTTjvj%2BbQUrTMkzxlUckDaz6wHO0XDW58vwpgmLm8DU6%2B4TQcATHOIMJd9acKEYRpEdEb=
+trmH0OXTaKZyQjWn522%2BEN5Eay3ls%2B4mBzkzDLqZrcwFLrThhveg0%2F6DBSfN%2FJEiJ64=
+9iEvtmAG2yvNgw8AkjOh%2FBPo%2BRqrEq5GzOlNkVUzA3rTfExUwiRijZ5w9iCWmPn8QwsoyHh=
+usADZbrtC9J0e1b5UE274ecAqcgxWx3Ofyz024gi%2B1dhbkbu03DhehRB9h5EeFGWhwakx&met=
+a=3D%2F0j38OAkVXeOHvY9DkKzglULp%2Bp1jfNIwUBb9wyOZ3dIDTFbyPhNVDFJfkwTC5SDbbQ=
+juEyFdWW8PAKPVZesXeb2txEWWI2Zu37bySvZwJAyJqn5gGkZxT8QrcUVKY3g%2FUSvqFvNd3Dw=
+cxWyJ9KSmA7ONePdLLz2MXbmIZAd2DVMaGISADXGnNd8GKIoH0LGKI8EeSKHY9sXLX33TtasQA%=
+3D%3D&iv=3D0isARS8R0SEq2E44YQaYGQ%3D%3D" style=3D"display:none !important;"=
+ height=3D"0" width=3D"0" alt=3D"&nbsp;">
+  =20
+   <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"body-outlook" style=3D"width:undefined;" width=
+=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]--><div class=3D"body" style=3D"max-width:700px;margi=
+n:0 auto"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"=
+border:16px solid #e5f1fc;direction:ltr;font-size:0;padding:20px 0;padding-=
+bottom:32px;padding-top:16px;text-align:center" class=3D"wrapper"><!--[if m=
+so | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0"><tr><td class=3D"" ><table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:700px;" width=3D"70=
+0" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exa=
+ctly;"><![endif]--><div style=3D"margin:0 auto;max-width:700px"><table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"width:100%" automation-id=3D"header"><tbody><tr><td style=
+=3D"direction:ltr;font-size:0;padding:0;text-align:center"><!--[if mso | IE=
+]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td class=3D"" width=3D"700px" ><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:700px;=
+" width=3D"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-he=
+ight-rule:exactly;"><![endif]--><div style=3D"margin:0 auto;max-width:700px=
+"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"directio=
+n:ltr;font-size:0;padding:0 32px;text-align:center" class=3D"section-wrappe=
+r"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;wid=
+th:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0;text-align:left;direction:ltr;display:inline-block;=
+vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"100=
+%"><tr><td align=3D"center" style=3D"font-size:0;padding:0;word-break:break=
+-word"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"border-collapse:collapse;border-spacing:0"><tbody><tr><t=
+d style=3D"width:180px"><a href=3D"https://w-mt.co/rptrcks/comm-smart-app/s=
+ervices/tracking/clickTracker?redirectTo=3DEnjnWTj4CwoSuTdSdyeuJeQBHVUFf4PB=
+gO7wPlRI3vTjMej14F3MNfPChMd09FoO29hRGjfH28C8UmKftLB66%2BKigHUEFY2qG1gwxUKtN=
+hYFZLq%2BE1iJnFS9gREDiEeL208461pP6UI6qzsuN45zR29DeU8hdNX76H9nz%2BpmIMxSWLUP=
+oi%2BIW3ZAMVinZcmIFR9TD%2BVXzW8QI4v5sZ9QqAnTST4Ps%2FiDE0bpOZTLhtx0ENuos7ttA=
+L7LRFTqVLq9xo31XLSvbQHegl4NbUiz0xjEC4OJLw95oJYDSFc27NX4Ghd5iVq4PybT61CZjC5M=
+0gDF1noqQpwKpr1%2FoQOXKZdw4IWeF1AJvFKPf%2Bc7n8vBvCzecBZTG5jWV%2Fmx0%2BQtE5x=
+qtknKFah%2BV3dB1z74j4vbIKgHei7elHMDPtq%2FOi8%3D&meta=3DHoCjw3xAkjHEv2e3mdEf=
+a%2BvmDHcek3QexlUBmgk%2FWZ4w0mg1PFNIlFm0Apq2v33RPSRxcI3%2Fyu0RCWI1Mx5Rll3pH=
+0JoVVc9Rg8jtOaUhcSPUOCYFpru%2BDNkRX3Ej6wYglc16R9MtowTXBeJtp6NHC2LPP84NxblwJ=
+mwuKq953kTau43wMFIVEMwmX0hz1iRdPIpD2ko5bIMAF%2BEEvtMYw%3D%3D&iv=3DCU1ZHOTru=
+jyoZXmUxuQvZA%3D%3D" target=3D"_blank" style=3D"text-decoration:underline;c=
+olor:#000"><img alt=3D"Walmart home page" height=3D"auto" src=3D"https://i5=
+.walmartimages.com/dfw/4ff9c6c9-6bed/k2-_5bc7e1a4-2f19-4e5f-92fd-c7f9d1501d=
+9b.v1.png" style=3D"border:0;text-decoration:none;height:auto;width:100%;fo=
+nt-size:16px" width=3D"180" inline=3D"undefined"></a></td></tr></tbody></ta=
+ble></td></tr></table></div><!--[if mso | IE]></td></tr></table><![endif]--=
+></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table></td><=
+/tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]><=
+/td></tr></table></td></tr><tr><td class=3D"" ><table align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:700p=
+x;" width=3D"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-=
+height-rule:exactly;"><![endif]--><div style=3D"margin:0 auto;border-radius=
+:0;max-width:700px"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;border-radius:0=
+"><tbody><tr><td style=3D"border:none;direction:ltr;font-size:0;padding:0 3=
+2px 0 32px;text-align:center" class=3D"section-wrapper"><!--[if mso | IE]><=
+table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+"><tr><td class=3D"" style=3D"vertical-align:top;width:636px;" ><![endif]--=
+><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0=
+;text-align:left;direction:ltr;display:inline-block;vertical-align:top;widt=
+h:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%"><tbody><tr><td style=3D"border:none;border-radius=
+:0;vertical-align:top;padding:0"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D"left" s=
+tyle=3D"font-size:0;padding:0;word-break:break-word"><div style=3D"font-fam=
+ily:helvetica;font-size:16px;line-height:1.38;text-align:left;color:#000"><=
+span><p style=3D"margin:0;line-height:40px">&nbsp;</p><p style=3D"margin:0;=
+color:#515357;font-feature-settings:'clig' off,'liga' off;font-family:Helve=
+tica;font-size:14px;font-style:normal;font-weight:400;line-height:20px">Ord=
+er date: Fri Dec 15, 2023<br>Order number : #5432340001566</p><p style=3D"m=
+argin:0;line-height:20px">&nbsp;</p><p style=3D"margin:0;color:#2e2f32;font=
+-feature-settings:'clig' off,'liga' off;font-family:Helvetica;font-size:24p=
+x;font-style:normal;font-weight:400;line-height:32px">Thanks for your order=
+, Jihong</p><p style=3D"margin:0;line-height:24px">&nbsp;</p><p style=3D"ma=
+rgin:0;color:#2e2f32;font-feature-settings:'clig' off,'liga' off;font-famil=
+y:Helvetica;font-size:16px;font-style:normal;font-weight:400;line-height:24=
+px">We=E2=80=99ll get started on your order soon. You=E2=80=99ll receive yo=
+ur receipt with adjusted total once the order is ready.</p><p style=3D"marg=
+in:0;line-height:16px">&nbsp;</p><p style=3D"margin:0;color:#2e2f32;font-fe=
+ature-settings:'clig' off,'liga' off;font-family:Helvetica;font-size:16px;f=
+ont-style:normal;font-weight:400;line-height:24px">You have until<span styl=
+e=3D"font-weight:700"> Dec 16, 2023</span> at <span style=3D"font-weight:70=
+0">12:00AM </span>to change or cancel this order.</p><p style=3D"margin:0;l=
+ine-height:16px">&nbsp;</p></span></div></td></tr><tr><td align=3D"left" ve=
+rtical-align=3D"middle" class=3D"alignMobile-0-2056288-3" style=3D"font-siz=
+e:0;padding:0;word-break:break-word"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:separate;w=
+idth:undefined;line-height:100%"><tr><td align=3D"center" bgcolor=3D"#0071d=
+c" role=3D"presentation" style=3D"border:none;border-radius:100px;cursor:au=
+to;height:undefined;mso-padding-alt:10px 24px;background:#0071dc" valign=3D=
+"middle"><a href=3D"https://w-mt.co/rptrcks/comm-smart-app/services/trackin=
+g/clickTracker?redirectTo=3Df0VNhNqh6qAESfyfqRD%2BLd99rGXr7aoAe69jT8yW0NCtK=
+0YLelmoM%2FZyzJaVh65loCBhnwIxb5B02A6V4gBM1uoTwy17KIbRA5qnUmY9ckfdZyp%2B0Nbv=
+iDgvGbqP%2BYJdflMQ%2B0iMQFiwDdhpOqDqzq5xQTsZ1RyEMh%2BWsoZ9lvWX7PXdQQu7nz2rp=
+gRu1Ybe0HI8eEmuKb5o6UKZeMwDXu4igT34OkD1rtwDGnEA5kAPx6t4vHOYpnNxPUvo61cb%2B6=
+buUakZSaZnfCy6BNek0n%2FKgMIpBS4RxYB59xR7IEAdlvrQ5Gb%2FqOu1I6MV%2F69ltif37TK=
+jaMVha64i23CSTSK8tF5MqnS1WbQeJmJ6M9AuEwEa0C1x0yqKitrg7gK4xcdgVnAaLqYY%2BB0r=
+z1FPAXwZ0lvmVnnqKUgpHe3OWHXQqHWNq89ltv4Dw001OiWyHuDfiIHYvqO23TFDDAE8Z%2FMMu=
+6kKBHg0PU3blhxKFWKcOASU6FgQ3ds2oToRIXhhdB2IObR38J7303oOMuGB3J96cq3b0eZa0PHS=
+Ouwbp1A%3D&meta=3DU3MaKwF%2BKy5yxgWBQex6qA4bUsEbi%2BMgIy8P1bU2mag8Rb5RNasWe=
+F1mk53sBgoqQOlL%2Bp5pTO7cspD0wUHWNwbQCEa5XIgZsuUjQydt5fABaep8qxyJOvZ3wmgxVd=
+Fdv%2BI%2BGJ7Y%2FGxaMTSzE%2Beqe6m5jBwD8LzSN%2FI%2BJe59tA3JjONDE37Olt05mmg%2=
+BaihPFqXgXxs8QuW87zNaplLUmQ%3D%3D&iv=3DgK8IG3ApZpttmmrwjzmOkQ%3D%3D" style=
+=3D"display:inline-block;background:#0071dc;font-family:helvetica;font-size=
+:16px;font-weight:700;line-height:1.38;margin:0;text-decoration:none;text-t=
+ransform:none;padding:10px 24px;mso-padding-alt:0;border-radius:100px;color=
+:#fff" target=3D"_blank"><p style=3D"margin:0;color:#fff;font-family:Helvet=
+ica;font-size:16px;font-style:normal;font-weight:700;line-height:16px">Modi=
+fy order</p></a></td></tr></table></td></tr></table></td></tr></tbody></tab=
+le></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody>=
+</table></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=
+=3D"" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div=
+ style=3D"margin:0 auto;border-radius:0;max-width:700px"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"width:100%;border-radius:0"><tbody><tr><td style=3D"border:none;=
+direction:ltr;font-size:0;padding:0 32px 0 32px;text-align:center" class=3D=
+"section-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical=
+-align:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-ou=
+tlook-group-fix" style=3D"font-size:0;text-align:left;direction:ltr;display=
+:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><=
+td style=3D"border:none;border-radius:0;vertical-align:top;padding:0"><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" wi=
+dth=3D"100%"><tr><td align=3D"left" style=3D"font-size:0;padding:0;word-bre=
+ak:break-word"><div style=3D"font-family:helvetica;font-size:16px;line-heig=
+ht:1.38;text-align:left;color:#000"><span><p style=3D"margin:0;line-height:=
+16px">&nbsp;</p><p style=3D"margin:0;color:#2e2f32;font-feature-settings:'c=
+lig' off,'liga' off;font-family:Helvetica;font-size:16px;font-style:normal;=
+font-weight:400;line-height:24px">If you have questions or placed this orde=
+r as a guest, please <a href=3D"https://w-mt.co/rptrcks/comm-smart-app/serv=
+ices/tracking/clickTracker?redirectTo=3D%2FX3b9A2AXVneG39Zcbwsfk%2B8c5VrNvI=
+XZOx%2BifNUTgIrDTSQmJVmtoyyabtbQM%2BqI4R%2B0q6WffJ3HcG4t%2BP%2Be0%2FAr1nJ20=
+cttl33sNqU6%2ByjmOTJ9CHeuo9r291nJVS34t0nJM8pIKGy9je8LOVS%2F5xNcQUSWMan8MTWB=
+9n17cd0H%2BMoQ2wnFXITIBNS%2FLSWU7%2F%2FtABoB2gtNapEenMaMizoqPFsCBEjaKcJLRmW=
+xGZrxQbOapXGZLTl%2FnRhz6gNdVjykVf3q3KtZnzJx6mZ0vMEbYXQAhLDcJoU5dGvujfCI2a9g=
+C2muE3eRtdptAqcVKf3gRS4yzEzIhcd%2BuadhBOppkx8GVYAuBM9vrNAJ%2FpusPxgEMgH1UdI=
+0WOI7j%2F0khbqDfxktmE7gTl7QHxakI%2BLW1tsiPw4N1csB52jT1oy4lku10UR45UhE9wQWYc=
+njeINLxAhq%2FEhtEf1o%2FYPibubLN8L5Qs%2FyX%2F8oQC%2Bljk%3D&meta=3Dgprv%2FDWk=
+w8fg8LEUwW779%2FaZ3LCynHvRdAvhOeLo87xbhfLbKs9iLC2hrFcYLOI%2FekWNbVqCO8K7cz%=
+2FICBaIpP1hDnb3MW9I7wO2FjiCtO3VWiIentYjtl0hdr81qlFzmi6iNIZpX3vEKQL24yPmLwet=
+SGQcbeAvkVIXOU%2BDC8%2BgygsxNWqRI2k7hZK2dwfjI0Jcwx4w3cluWha0uepUYQ%3D%3D&iv=
+=3Dl7Ngx4X4SANOir4Ir8Nxtw%3D%3D" rel=3D"noreferrer" style=3D"text-decoratio=
+n:underline;color:#0071dc" target=3D"_blank">contact us</a> to chat with an=
+ agent.</p></span></div></td></tr></table></td></tr></tbody></table></div><=
+!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></=
+div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" ><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"ma=
+rgin:0 auto;border-radius:0;max-width:700px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%;border-radius:0"><tbody><tr><td style=3D"border:none;direction:lt=
+r;font-size:0;padding:0 32px 0 32px;text-align:center" class=3D"section-wra=
+pper"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;w=
+idth:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-=
+fix" style=3D"font-size:0;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"=
+border:none;border-radius:0;vertical-align:top;padding:0"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+><tr><td style=3D"font-size:0;padding:0;padding-top:24px;padding-bottom:0;w=
+ord-break:break-word"><p style=3D"border-top:solid 1px #e6e7e8;font-size:1p=
+x;margin:0 auto;width:100%"></p><!--[if mso | IE]><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1=
+px #e6e7e8;font-size:1px;margin:0px auto;width:636px;" role=3D"presentation=
+" width=3D"636px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></table></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></ta=
+ble></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" =
+><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0 auto;max-width:700px"><table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"=
+ automation-id=3D"item-group"><tbody><tr><td style=3D"direction:ltr;font-si=
+ze:0;padding:0;text-align:center"><!--[if mso | IE]><table role=3D"presenta=
+tion" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" w=
+idth=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td styl=
+e=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]=
+--><div style=3D"margin:0 auto;max-width:700px"><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0=
+ 32px;padding-top:24px;text-align:center" class=3D"section-wrapper"><!--[if=
+ mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0"><tr><td class=3D"" style=3D"" ><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:636px;=
+" width=3D"636" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-he=
+ight-rule:exactly;"><![endif]--><div style=3D"margin:0 auto;max-width:636px=
+"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"directio=
+n:ltr;font-size:0;padding:0 32px;padding-left:0!important;padding-right:0!i=
+mportant;text-align:center" class=3D"section-wrapper"><!--[if mso | IE]><ta=
+ble role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">=
+<tr><td class=3D"" style=3D"width:318px;" ><![endif]--><div class=3D"mj-col=
+umn-per-50 mj-outlook-group-fix" style=3D"font-size:0;line-height:0;text-al=
+ign:left;display:inline-block;width:100%;direction:ltr"><!--[if mso | IE]><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" ><tr><td style=3D"vertical-align:top;width:318px;" ><![endif]--><div clas=
+s=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0;text-alig=
+n:left;direction:ltr;display:inline-block;vertical-align:top;width:100%"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding-right:0"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0;padding:0;wo=
+rd-break:break-word"><div style=3D"font-family:helvetica;font-size:16px;lin=
+e-height:1.38;text-align:left;color:#000"><span style=3D"background-color:#=
+e6f1fc!important;color:#004f9a!important;text-align:left;font-family:Helvet=
+ica;font-size:14px;font-style:normal;font-weight:400;line-height:14px;paddi=
+ng-right:0">Part 1 of 1</span> <span style=3D"padding-left:16px"><span styl=
+e=3D"background-color:#efd!important;color:#2a8703!important;text-align:lef=
+t;font-family:Helvetica;font-size:14px;font-style:normal;font-weight:400;li=
+ne-height:14px;padding-right:0"></span></span></div></td></tr></table></td>=
+</tr></tbody></table></div><!--[if mso | IE]></td></tr></table><![endif]-->=
+</div><!--[if mso | IE]></td><td class=3D"" style=3D"width:318px;" ><![endi=
+f]--><div class=3D"mj-column-per-50 mj-outlook-group-fix" style=3D"font-siz=
+e:0;line-height:0;text-align:left;display:inline-block;width:100%;direction=
+:ltr"><!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" ><tr><td style=3D"vertical-align:top;width:318=
+px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" sty=
+le=3D"font-size:0;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertica=
+l-align:top;padding-left:0"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"></table></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table><![endif]--></div><!--[if ms=
+o | IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><!--[=
+if mso | IE]></td></tr></table></td><td class=3D"" style=3D"" ><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" sty=
+le=3D"width:636px;" width=3D"636" ><tr><td style=3D"line-height:0px;font-si=
+ze:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0 au=
+to;max-width:636px"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td=
+ style=3D"direction:ltr;font-size:0;padding:0 32px;padding-left:0!important=
+;padding-right:0!important;padding-top:16px;text-align:center" class=3D"sec=
+tion-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-ali=
+gn:middle;width:63.6px;" ><![endif]--><div class=3D"mj-column-per-10 mj-out=
+look-group-fix" style=3D"font-size:0;line-height:0;text-align:left;display:=
+inline-block;width:100%;direction:ltr;vertical-align:middle"><!--[if mso | =
+IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" ><tr><td style=3D"vertical-align:top;width:63px;" ><![endif]--><div =
+class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0;text-=
+align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding-righ=
+t:0;padding-left:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-=
+size:0;padding:0;word-break:break-word"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collaps=
+e;border-spacing:0"><tbody><tr><td style=3D"width:48px"><img height=3D"48" =
+src=3D"https://i5.walmartimages.com/dfw/4ff9c6c9-aedf/k2-_876f3c0d-c2e7-418=
+6-ad49-ac609a556d80.v1.png" style=3D"border:0;text-decoration:none;height:4=
+8px;width:100%;font-size:16px" width=3D"48"></td></tr></tbody></table></td>=
+</tr></table></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></=
+table><![endif]--></div><!--[if mso | IE]></td><td class=3D"" style=3D"vert=
+ical-align:middle;width:572.4px;" ><![endif]--><div class=3D"mj-column-per-=
+90 mj-outlook-group-fix" style=3D"font-size:0;line-height:0;text-align:left=
+;display:inline-block;width:100%;direction:ltr;vertical-align:middle"><!--[=
+if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" ><tr><td style=3D"vertical-align:top;width:572px;" ><![en=
+dif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-=
+size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:to=
+p;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top=
+;padding-left:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-siz=
+e:0;padding:0;word-break:break-word"><div style=3D"font-family:helvetica;fo=
+nt-size:16px;line-height:1.38;text-align:left;color:#000"><p style=3D"margi=
+n:0;color:#2e2f32;font-family:Helvetica;font-size:24px;font-style:normal;fo=
+nt-weight:700;line-height:36px">Arrives December 16, 2023 09:00AM - 10:00AM=
+</p></div></td></tr></table></td></tr></tbody></table></div><!--[if mso | I=
+E]></td></tr></table><![endif]--></div><!--[if mso | IE]></td></tr></table>=
+<![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></t=
+able></td><td class=3D"" style=3D"" ><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:636px;" width=
+=3D"636" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]--><div style=3D"margin:0 auto;max-width:636px"><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;f=
+ont-size:0;padding:0 32px;padding-left:0!important;padding-right:0!importan=
+t;padding-top:16px;text-align:center" class=3D"section-wrapper"><!--[if mso=
+ | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td class=3D"" style=3D"vertical-align:middle;width:636px;" >=
+<![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"=
+font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;d=
+irection:ltr;vertical-align:middle"><!--[if mso | IE]><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" ><tr><td style=3D"=
+vertical-align:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-1=
+00 mj-outlook-group-fix" style=3D"font-size:0;text-align:left;direction:ltr=
+;display:inline-block;vertical-align:top;width:100%"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbo=
+dy><tr><td style=3D"vertical-align:top;padding-left:0"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><t=
+r><td align=3D"left" style=3D"font-size:0;padding:0;word-break:break-word">=
+<div style=3D"font-family:helvetica;font-size:16px;line-height:1.38;text-al=
+ign:left;color:#000"><p style=3D"margin:0;color:#515357;font-family:Helveti=
+ca;font-size:16px;font-style:normal;font-weight:400;line-height:22px">Jihon=
+g Han<br>16419 53 St NW<br>Edmonton, AB<br>T5Y 0H4</p></div></td></tr></tab=
+le></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><![e=
+ndif]--></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></t=
+body></table></div><!--[if mso | IE]></td></tr></table></td><td class=3D"" =
+style=3D"" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" style=3D"width:636px;" width=3D"636" ><tr><td style=3D=
+"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><=
+div style=3D"margin:0 auto;max-width:636px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0 32px=
+;padding-bottom:16px;padding-left:0!important;padding-right:0!important;pad=
+ding-top:24px;text-align:center" class=3D"section-wrapper"><!--[if mso | IE=
+]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td class=3D"" style=3D"vertical-align:middle;width:636px;" ><![=
+endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"fon=
+t-size:0;line-height:0;text-align:left;display:inline-block;width:100%;dire=
+ction:ltr;vertical-align:middle"><!--[if mso | IE]><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" ><tr><td style=3D"ver=
+tical-align:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-100 =
+mj-outlook-group-fix" style=3D"font-size:0;text-align:left;direction:ltr;di=
+splay:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>=
+<tr><td style=3D"vertical-align:top;padding-left:0"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><=
+td align=3D"left" style=3D"font-size:0;padding:0;word-break:break-word"><di=
+v style=3D"font-family:helvetica;font-size:16px;line-height:1.38;text-align=
+:left;color:#000"><p style=3D"margin:0;color:#2e2f32;font-family:Helvetica;=
+font-size:20px;font-style:normal;font-weight:400;line-height:normal">16 ite=
+ms</p></div></td></tr></table></td></tr></tbody></table></div><!--[if mso |=
+ IE]></td></tr></table><![endif]--></div><!--[if mso | IE]></td></tr></tabl=
+e><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr><=
+/table></td><td class=3D"" style=3D"" ><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:636px;" widt=
+h=3D"636" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><![endif]--><div style=3D"margin:0 auto;max-width:636px"><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direction:lt=
+r;font-size:0;padding:0 32px;padding-bottom:24px;padding-left:0!important;p=
+adding-right:0!important;text-align:center" class=3D"section-wrapper"><!--[=
+if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0"><tr><td class=3D"" style=3D"width:318px;" ><![endif]--><div=
+ class=3D"mj-column-per-50 mj-outlook-group-fix" style=3D"font-size:0;line-=
+height:0;text-align:left;display:inline-block;width:100%;direction:ltr"><!-=
+-[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" ><tr><td style=3D"vertical-align:middle;width:79px;" ><![=
+endif]--><div class=3D"mj-column-per-25 mj-outlook-group-fix" style=3D"font=
+-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:m=
+iddle;width:25%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:m=
+iddle;padding-top:16px;padding-right:0;padding-left:0"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><t=
+r><td align=3D"left" style=3D"font-size:0;padding:0;word-break:break-word">=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"color:#000;font-family:helvetica;font-size:16px;line-height:1.38;table=
+-layout:auto;width:100%;border:none"><td align=3D"right"><p style=3D"margin=
+:0;width:16px;border-radius:8px;text-align:center;font-family:Bogle;font-si=
+ze:12px;font-style:normal;font-weight:700;line-height:16px;border:1px solid=
+ #74767c">2</p></td></table></td></tr><tr><td align=3D"center" style=3D"fon=
+t-size:0;padding:0 16px 0 0;word-break:break-word"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-colla=
+pse:collapse;border-spacing:0"><tbody><tr><td style=3D"width:48px"><img hei=
+ght=3D"56" src=3D"https://i5.walmartimages.ca/images/Thumbnails/094/548/600=
+0200094548.jpg" style=3D"border:0;text-decoration:none;height:56px;width:10=
+0%;font-size:16px" width=3D"48"></td></tr></tbody></table></td></tr></table=
+></td></tr></tbody></table></div><!--[if mso | IE]></td><td style=3D"vertic=
+al-align:middle;width:79px;" ><![endif]--><div class=3D"mj-column-per-25 mj=
+-outlook-group-fix" style=3D"font-size:0;text-align:left;direction:ltr;disp=
+lay:inline-block;vertical-align:middle;width:25%"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>=
+<tr><td style=3D"vertical-align:middle;padding-top:16px;padding-right:0;pad=
+ding-left:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:=
+0;padding:0;word-break:break-word"><table cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%" border=3D"0" style=3D"color:#000;font-family:helvetica;fo=
+nt-size:16px;line-height:1.38;table-layout:auto;width:100%;border:none"><td=
+ align=3D"right"><p style=3D"margin:0;width:16px;border-radius:8px;text-ali=
+gn:center;font-family:Bogle;font-size:12px;font-style:normal;font-weight:70=
+0;line-height:16px;border:1px solid #74767c">4</p></td></table></td></tr><t=
+r><td align=3D"center" style=3D"font-size:0;padding:0 16px 0 0;word-break:b=
+reak-word"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"border-collapse:collapse;border-spacing:0"><tbody><t=
+r><td style=3D"width:48px"><img height=3D"56" src=3D"https://i5.walmartimag=
+es.com/asr/5a2b0849-58a8-4245-9d92-bf7b3df2c42c.baa256f533836b9cfc443cb73e0=
+7d15d.jpeg?odnHeight=3D180&odnWidth=3D180&odnBg=3Dffffff" style=3D"border:0=
+;text-decoration:none;height:56px;width:100%;font-size:16px" width=3D"48"><=
+/td></tr></tbody></table></td></tr></table></td></tr></tbody></table></div>=
+<!--[if mso | IE]></td><td style=3D"vertical-align:middle;width:79px;" ><![=
+endif]--><div class=3D"mj-column-per-25 mj-outlook-group-fix" style=3D"font=
+-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:m=
+iddle;width:25%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:m=
+iddle;padding-top:16px;padding-right:0;padding-left:0"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><t=
+r><td align=3D"left" style=3D"font-size:0;padding:0;word-break:break-word">=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"color:#000;font-family:helvetica;font-size:16px;line-height:1.38;table=
+-layout:auto;width:100%;border:none"><td align=3D"right"><p style=3D"margin=
+:0;width:16px;border-radius:8px;text-align:center;font-family:Bogle;font-si=
+ze:12px;font-style:normal;font-weight:700;line-height:16px;border:1px solid=
+ #74767c">1</p></td></table></td></tr><tr><td align=3D"center" style=3D"fon=
+t-size:0;padding:0 16px 0 0;word-break:break-word"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-colla=
+pse:collapse;border-spacing:0"><tbody><tr><td style=3D"width:48px"><img hei=
+ght=3D"56" src=3D"https://i5.walmartimages.com/asr/7b5f68a7-d4dc-4fe2-92ec-=
+adb16b25e345.7a0049d6616470822445a7790a9293ff.jpeg?odnHeight=3D180&odnWidth=
+=3D180&odnBg=3Dffffff" style=3D"border:0;text-decoration:none;height:56px;w=
+idth:100%;font-size:16px" width=3D"48"></td></tr></tbody></table></td></tr>=
+</table></td></tr></tbody></table></div><!--[if mso | IE]></td><td style=3D=
+"vertical-align:middle;width:79px;" ><![endif]--><div class=3D"mj-column-pe=
+r-25 mj-outlook-group-fix" style=3D"font-size:0;text-align:left;direction:l=
+tr;display:inline-block;vertical-align:middle;width:25%"><table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">=
+<tbody><tr><td style=3D"vertical-align:middle;padding-top:16px;padding-righ=
+t:0;padding-left:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-=
+size:0;padding:0;word-break:break-word"><table cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" border=3D"0" style=3D"color:#000;font-family:helveti=
+ca;font-size:16px;line-height:1.38;table-layout:auto;width:100%;border:none=
+"><td align=3D"right"><p style=3D"margin:0;width:16px;border-radius:8px;tex=
+t-align:center;font-family:Bogle;font-size:12px;font-style:normal;font-weig=
+ht:700;line-height:16px;border:1px solid #74767c">1</p></td></table></td></=
+tr><tr><td align=3D"center" style=3D"font-size:0;padding:0 16px 0 0;word-br=
+eak:break-word"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0"><tbo=
+dy><tr><td style=3D"width:48px"><img height=3D"56" src=3D"https://i5.walmar=
+timages.com/asr/5c8ed05a-a55f-4e93-880b-c42c078f6c6c.11af35c07a7d0ed0e282d1=
+6a0e21a4b6.jpeg?odnHeight=3D180&odnWidth=3D180&odnBg=3Dffffff" style=3D"bor=
+der:0;text-decoration:none;height:56px;width:100%;font-size:16px" width=3D"=
+48"></td></tr></tbody></table></td></tr></table></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></div><!--[if mso | IE=
+]></td><td class=3D"" style=3D"width:318px;" ><![endif]--><div class=3D"mj-=
+column-per-50 mj-outlook-group-fix" style=3D"font-size:0;line-height:0;text=
+-align:left;display:inline-block;width:100%;direction:ltr"><!--[if mso | IE=
+]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" ><tr><td style=3D"vertical-align:middle;width:79px;" ><![endif]--><div=
+ class=3D"mj-column-per-25 mj-outlook-group-fix" style=3D"font-size:0;text-=
+align:left;direction:ltr;display:inline-block;vertical-align:middle;width:2=
+5%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:middle;padding=
+-top:16px;padding-right:0;padding-left:0"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=
+=3D"left" style=3D"font-size:0;padding:0;word-break:break-word"><table cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" style=3D"color:=
+#000;font-family:helvetica;font-size:16px;line-height:1.38;table-layout:aut=
+o;width:100%;border:none"><td align=3D"right"><p style=3D"margin:0;width:16=
+px;border-radius:8px;text-align:center;font-family:Bogle;font-size:12px;fon=
+t-style:normal;font-weight:700;line-height:16px;border:1px solid #74767c">1=
+</p></td></table></td></tr><tr><td align=3D"center" style=3D"font-size:0;pa=
+dding:0 16px 0 0;word-break:break-word"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collaps=
+e;border-spacing:0"><tbody><tr><td style=3D"width:48px"><img height=3D"56" =
+src=3D"https://i5.walmartimages.com/asr/2903b748-e90a-44fe-8051-ea82f3b77e6=
+b.a85395ba3c1e78e7141be7fc9f9b6a83.jpeg?odnHeight=3D180&odnWidth=3D180&odnB=
+g=3Dffffff" style=3D"border:0;text-decoration:none;height:56px;width:100%;f=
+ont-size:16px" width=3D"48"></td></tr></tbody></table></td></tr></table></t=
+d></tr></tbody></table></div><!--[if mso | IE]></td><td style=3D"vertical-a=
+lign:middle;width:79px;" ><![endif]--><div class=3D"mj-column-per-25 mj-out=
+look-group-fix" style=3D"font-size:0;text-align:left;direction:ltr;display:=
+inline-block;vertical-align:middle;width:25%"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr>=
+<td style=3D"vertical-align:middle;padding-top:16px;padding-right:0;padding=
+-left:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0;padd=
+ing:0;word-break:break-word"><table cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%" border=3D"0" style=3D"color:#000;font-family:helvetica;font-siz=
+e:16px;line-height:1.38;table-layout:auto;width:100%;border:none"><td align=
+=3D"right"><p style=3D"margin:0;width:16px;border-radius:8px;text-align:cen=
+ter;font-family:Bogle;font-size:12px;font-style:normal;font-weight:700;line=
+-height:16px;border:1px solid #74767c">4</p></td></table></td></tr><tr><td =
+align=3D"center" style=3D"font-size:0;padding:0 16px 0 0;word-break:break-w=
+ord"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"border-collapse:collapse;border-spacing:0"><tbody><tr><td =
+style=3D"width:48px"><img height=3D"56" src=3D"https://i5.walmartimages.com=
+/asr/6e285a90-1dea-4682-be26-3f54b03be5ad.39028e67c24e7a6c8fcf9cf2468ed4fc.=
+jpeg?odnHeight=3D180&odnWidth=3D180&odnBg=3Dffffff" style=3D"border:0;text-=
+decoration:none;height:56px;width:100%;font-size:16px" width=3D"48"></td></=
+tr></tbody></table></td></tr></table></td></tr></tbody></table></div><!--[i=
+f mso | IE]></td><td style=3D"vertical-align:middle;width:79px;" ><![endif]=
+--><div class=3D"mj-column-per-25 mj-outlook-group-fix" style=3D"font-size:=
+0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;=
+width:25%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:middle;=
+padding-top:16px;padding-right:0;padding-left:0"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td =
+align=3D"left" style=3D"font-size:0;padding:0;word-break:break-word"><table=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" style=3D"c=
+olor:#000;font-family:helvetica;font-size:16px;line-height:1.38;table-layou=
+t:auto;width:100%;border:none"><td align=3D"right"><p style=3D"margin:0;wid=
+th:16px;border-radius:8px;text-align:center;font-family:Bogle;font-size:12p=
+x;font-style:normal;font-weight:700;line-height:16px;border:1px solid #7476=
+7c">2</p></td></table></td></tr><tr><td align=3D"center" style=3D"font-size=
+:0;padding:0 16px 0 0;word-break:break-word"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:co=
+llapse;border-spacing:0"><tbody><tr><td style=3D"width:48px"><img height=3D=
+"56" src=3D"https://i5.walmartimages.com/asr/a5625a63-a89a-4a63-9c5e-cf0d71=
+44a822.9188f1d391067f6b4d2a29ef6261ba55.png?odnHeight=3D180&odnWidth=3D180&=
+odnBg=3Dffffff" style=3D"border:0;text-decoration:none;height:56px;width:10=
+0%;font-size:16px" width=3D"48"></td></tr></tbody></table></td></tr></table=
+></td></tr></tbody></table></div><!--[if mso | IE]></td><td style=3D"vertic=
+al-align:middle;width:79px;" ><![endif]--><div class=3D"mj-column-per-25 mj=
+-outlook-group-fix" style=3D"font-size:0;text-align:left;direction:ltr;disp=
+lay:inline-block;vertical-align:middle;width:25%"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>=
+<tr><td style=3D"vertical-align:middle;padding-top:26px;padding-right:0;pad=
+ding-left:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:=
+0;padding:0;word-break:break-word"><div style=3D"font-family:helvetica;font=
+-size:16px;line-height:1.38;text-align:left;color:#000">+9</div></td></tr><=
+/table></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table>=
+<![endif]--></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr=
+></tbody></table></div><!--[if mso | IE]></td></tr></table></td><td class=
+=3D"" style=3D"" ><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"" style=3D"width:636px;" width=3D"636" ><tr><td st=
+yle=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endi=
+f]--><div style=3D"margin:0 auto;max-width:636px"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0=
+ 32px;padding-left:0!important;padding-right:0!important;text-align:center"=
+ class=3D"section-wrapper"><!--[if mso | IE]><table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td align=3D"center" cl=
+ass=3D"" style=3D"" ><![endif]--><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:separate;line-=
+height:100%"><tr><td align=3D"center" bgcolor=3D"#FFFFFF" role=3D"presentat=
+ion" style=3D"border:1px solid #000;border-radius:100px;cursor:auto;height:=
+40px;mso-padding-alt:10px 25px;background:#fff" valign=3D"middle"><a href=
+=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tracking/clickTracker?r=
+edirectTo=3DyEhFMAO7IfgOLmre6kKVYlQzbRxCSi9I30JkRR4%2BybRsZ3z%2B5%2FhWAZXiB=
+54eSbmKKoaTo%2FICo4Ztczj491DIFBqMfN2PLxIwXzrDPiHtMkuUqmx3iUDjMvH80V8kLm%2FO=
+IV%2B5cYAiIQ%2B2Onfvvvt7ABHPsoWeFFQQdXUhvpDK6pKLr8k1s9ksyy6kFjpmQztFNe9fSD3=
+SWdVQe5hT7VR7VShi5jCOVC%2FulaER0ZOYtkpbbk1d5JcqmwCesYTYTWoPhRVAhfVZZp962D%2=
+F4neYsqTT5kSwaek6XBo%2F973Dq%2FbpM%2FQl2xr65qk6iLuFu0aFrUmUf5WoK0QwpkxudU48=
+4fBqaoXCTphWA63NEZzrqwN2l4%2Bo9ONB3KrZihU8p8fGPv2b9nqj4VXv7YixKxuvMD5Gkhj5G=
+uCMwpa%2FN9NtvDcP3SkGnRxxaPlJ7bWmFqBs8&meta=3DAZviNhc4Dbca1oJ6suO15ZUu%2BOQ=
+Sb7OKCtG45uI3GDF7Y9jpVG4GH%2F53wtTTAjyv3uW9mX49fJY5EkZCipAK%2FJLm%2FmUfwHnw=
+eBblVtV73%2FpZDqISWOkohxnnTWAVC8413rqyVyrPH9LLdjX%2F7mHEWUbfafBgL9I%2BzCaDP=
+%2FPR4Rwp8JLQNu0IAg%2FkReXIekFgkSVjTwfpnqfVN1WaFjEiQg%3D%3D&iv=3Dt%2B2k4hSt=
+JemDXTf%2Bvtku8Q%3D%3D" style=3D"display:inline-block;background:#fff;font-=
+family:helvetica;font-size:16px;font-weight:700;line-height:1.38;margin:0;t=
+ext-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0=
+;border-radius:100px;color:#000" target=3D"_blank">View Items</a></td></tr>=
+</table><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table></td><td class=3D"" style=
+=3D"" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" style=3D"width:636px;" width=3D"636" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div=
+ style=3D"margin:0 auto;max-width:636px"><table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width=
+:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0 32px;pad=
+ding-left:0!important;padding-right:0!important;padding-top:24px;text-align=
+:center" class=3D"section-wrapper"><!--[if mso | IE]><table role=3D"present=
+ation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" =
+style=3D"vertical-align:top;width:636px;" ><![endif]--><div class=3D"mj-col=
+umn-per-100 mj-outlook-group-fix" style=3D"font-size:0;text-align:left;dire=
+ction:ltr;display:inline-block;vertical-align:top;width:100%"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"v=
+ertical-align:top" width=3D"100%"><tr><td style=3D"font-size:0;padding:0;wo=
+rd-break:break-word"><p style=3D"border-top:solid 1px #d3d3d3;font-size:1px=
+;margin:0 auto;width:100%"></p><!--[if mso | IE]><table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1p=
+x lightgrey;font-size:1px;margin:0px auto;width:636px;" role=3D"presentatio=
+n" width=3D"636px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></table></div><!--[if mso | IE]></t=
+d></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE=
+]></td></tr></table></td></tr></table><![endif]--></td></tr></tbody></table=
+></div><!--[if mso | IE]></td></tr></table></td></tr></table><![endif]--></=
+td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table></td></tr=
+><tr><td class=3D"" ><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td=
+ style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![e=
+ndif]--><div style=3D"margin:0 auto;border-radius:0;max-width:700px"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"width:100%;border-radius:0"><tbody><tr><td style=3D"=
+border:none;direction:ltr;font-size:0;padding:0 32px 0 32px;text-align:cent=
+er" class=3D"section-wrapper"><!--[if mso | IE]><table role=3D"presentation=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=
+=3D"vertical-align:top;width:636px;" ><![endif]--><div class=3D"mj-column-p=
+er-100 mj-outlook-group-fix" style=3D"font-size:0;text-align:left;direction=
+:ltr;display:inline-block;vertical-align:top;width:100%"><table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">=
+<tbody><tr><td style=3D"border:none;border-radius:0;vertical-align:top;padd=
+ing:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0;paddin=
+g:0;word-break:break-word"><div style=3D"font-family:helvetica;font-size:16=
+px;line-height:1.38;text-align:left;color:#000"><span><p style=3D"margin:0;=
+line-height:24px">&nbsp;</p><p style=3D"margin:0;color:#2e2f32;font-family:=
+Helvetica;font-size:24px;font-style:normal;font-weight:400;line-height:norm=
+al">Order summary &amp; receipt</p><p style=3D"margin:0;line-height:16px">&=
+nbsp;</p></span></div></td></tr></table></td></tr></tbody></table></div><!-=
+-[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></di=
+v><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" ><table =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"=
+" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-height:0px;fo=
+nt-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin=
+:0 auto;border-radius:0;max-width:700px"><table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width=
+:100%;border-radius:0"><tbody><tr><td style=3D"border:none;direction:ltr;fo=
+nt-size:0;padding:0 32px 0 32px;text-align:center" class=3D"section-wrapper=
+"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;wid=
+th:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0;text-align:left;direction:ltr;display:inline-block;=
+vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"bo=
+rder:none;border-radius:0;vertical-align:top;padding:0"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><=
+tr><td align=3D"left" class=3D"listTable-0-2056288-4" style=3D"font-size:0;=
+padding:0;word-break:break-word"><table cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" width=3D"100%" border=3D"0" style=3D"color:#000;font=
+-family:helvetica;font-size:16px;line-height:1.38;table-layout:auto;width:1=
+00%;border:none"><tbody role=3D"list"><tr role=3D"listitem"><td style=3D"pa=
+dding-top:8px;padding-bottom:8px;color:#515357!important;width:65%;font-fam=
+ily:Helvetica;font-size:16px;font-style:normal;font-weight:400;line-height:=
+24px">Item subtotal</td><td align=3D"right" style=3D"padding-top:8px;paddin=
+g-bottom:8px;width:35%;color:#515357!important;font-family:Helvetica;font-s=
+ize:16px;font-style:normal;font-weight:400;line-height:24px">$ 134.34</td><=
+/tr><undefined></undefined><tr role=3D"listitem"><td style=3D"padding-top:8=
+px;padding-bottom:8px;color:#515357!important;width:65%;font-family:Helveti=
+ca;font-size:16px;font-style:normal;font-weight:400;line-height:24px">Bev. =
+deposit</td><td align=3D"right" style=3D"padding-top:8px;padding-bottom:8px=
+;width:35%;color:#515357!important;font-family:Helvetica;font-size:16px;fon=
+t-style:normal;font-weight:400;line-height:24px">$ 1.00</td></tr><tr role=
+=3D"listitem"><td style=3D"padding-top:8px;padding-bottom:8px;color:#515357=
+!important;width:65%;font-family:Helvetica;font-size:16px;font-style:normal=
+;font-weight:400;line-height:24px">Container recycling fees</td><td align=
+=3D"right" style=3D"padding-top:8px;padding-bottom:8px;width:35%;color:#515=
+357!important;font-family:Helvetica;font-size:16px;font-style:normal;font-w=
+eight:400;line-height:24px">$ 0.42</td></tr><tr role=3D"listitem"><td style=
+=3D"padding-top:8px;padding-bottom:8px;color:#515357!important;width:65%;fo=
+nt-family:Helvetica;font-size:16px;font-style:normal;font-weight:400;line-h=
+eight:24px">eVoucher</td><td align=3D"right" style=3D"padding-top:8px;paddi=
+ng-bottom:8px;width:35%;color:#515357!important;font-family:Helvetica;font-=
+size:16px;font-style:normal;font-weight:400;line-height:24px">$ 15.01</td><=
+/tr></tbody></table></td></tr><tr><td align=3D"left" class=3D"listTable-0-2=
+056288-5" style=3D"font-size:0;padding:0;padding-top:0;padding-bottom:4px;w=
+ord-break:break-word"><table cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" width=3D"100%" border=3D"0" style=3D"color:#000;font-family:hel=
+vetica;font-size:16px;line-height:1.38;table-layout:auto;width:100%;border:=
+none"><tbody role=3D"list"></tbody></table></td></tr><tr><td align=3D"left"=
+ class=3D"listTable-0-2056288-6" style=3D"font-size:0;padding:0;padding-bot=
+tom:0;word-break:break-word"><table cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" width=3D"100%" border=3D"0" style=3D"color:#000;font-fam=
+ily:helvetica;font-size:16px;line-height:1.38;table-layout:auto;width:100%;=
+border:none"><tbody role=3D"list"><tr role=3D"listitem"><td align=3D"left" =
+style=3D"color:#565759!important;font-family:Helvetica!important;font-style=
+:normal;font-weight:400;font-size:16px!important;line-height:19px;padding-t=
+op:8px;width:65%"><span style=3D"color:#565759">GST</span> <span style=3D"c=
+olor:#565759"></span> @<span style=3D"color:#565759"> 5%</span></td><td ali=
+gn=3D"right" style=3D"color:#515357!important;padding-top:8px;width:35%;fon=
+t-family:Helvetica!important;font-style:normal;font-weight:400;font-size:16=
+px!important;line-height:21px;text-align:right">$ 0.73</td></tr></tbody></t=
+able></td></tr><tr><td align=3D"left" class=3D"listTable-0-2056288-7" style=
+=3D"font-size:0;padding:0;padding-top:12px;word-break:break-word"><table ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" bord=
+er=3D"0" style=3D"color:#000;font-family:helvetica;font-size:16px;line-heig=
+ht:1.38;table-layout:auto;width:100%;border:none"><tbody role=3D"list"><tr =
+role=3D"listitem"><td style=3D"padding-top:8px;color:#515357!important;widt=
+h:65%;font-family:Helvetica!important;font-size:16px!important;font-style:n=
+ormal;font-weight:400;line-height:24px"><span style=3D"font-size:20px;font-=
+weight:700">Total</span></td><td align=3D"right" style=3D"padding-top:8px;w=
+idth:35%;color:#515357!important;font-family:Helvetica!important;font-size:=
+16px!important;font-style:normal;font-weight:400;line-height:24px"><span st=
+yle=3D"font-size:20px;font-weight:700">$ 121.48</span></td></tr></tbody></t=
+able></td></tr></table></td></tr></tbody></table></div><!--[if mso | IE]></=
+td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | I=
+E]></td></tr></table></td></tr><tr><td class=3D"" ><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:=
+700px;" width=3D"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-l=
+ine-height-rule:exactly;"><![endif]--><div style=3D"margin:0 auto;border-ra=
+dius:0;max-width:700px"><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;border-radi=
+us:0"><tbody><tr><td style=3D"border:none;direction:ltr;font-size:0;padding=
+:0 32px 0 32px;text-align:center" class=3D"section-wrapper"><!--[if mso | I=
+E]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:636px;" ><![end=
+if]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-s=
+ize:0;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"border:none;border=
+-radius:0;vertical-align:top;padding:0"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D"=
+left" class=3D"listTable-0-2056288-8" style=3D"font-size:0;padding:0;paddin=
+g-top:8px;word-break:break-word"><table cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" width=3D"100%" border=3D"0" style=3D"color:#000;font=
+-family:helvetica;font-size:16px;line-height:1.38;table-layout:auto;width:1=
+00%;border:none"><tbody role=3D"list"><tr role=3D"listitem"><td style=3D"pa=
+dding-top:4px;color:#6d6e71"><p style=3D"margin:0;color:#2e2f32;font-family=
+:Helvetica;font-size:16px;font-style:normal;font-weight:400;line-height:22p=
+x">Order is subject to <a href=3D"https://w-mt.co/rptrcks/comm-smart-app/se=
+rvices/tracking/clickTracker?redirectTo=3DCT0x0aBLKXiiAo93%2BIlALDU1sNIWNg%=
+2F%2Bw7m28pwGHaRzjF38fi0WLguKrC1O%2BucZqvprc4UBBT%2By%2FzJQ5g0ppIXeXMhPFDmf=
+FeJHLnV2z8rai1LXdq0DFfXzQvuSozzGbMfBdQ5GXv8waIAVIshkU3ba5ey%2BTXbX19w9YP5bt=
+PoxTwPsJk%2FwyCjfbSosin674tHY9QVhSuXYN6gbsuMYfIiHgLLgM2IH1EKYazbShkBA4SUCaM=
+rCpLJ8KfhVgOEu4v9OBvkKxEf0U2wO6pvlnwLUt2DqY92ykKPjdl8Lq0H%2FZyQm2r6KCRqnrsU=
+8%2BJuQnuyn359FpKLYxVbY04by22IOSHYKCKeeAWXqRawKBmm5NwqkspCEMJnXkYv94beAsnxt=
+M9ghNRl17OVZ0CedGwp4O53Dyfsv5Bt9hW1cBZebSMMCZiChyrkBVkK215VE&meta=3DjMObUYb=
+THbPcCfakrZWCUKsHnUlzjZ8TmfY3SGj1o7GziOCc0cl0kB%2BcTNsNl4SPPFFKWKL2HHBXk02m=
+jAO3YFi07NLNgEsmNFaXOgbOqMshasi5%2F60Jxa%2BjWuIt9hBrrPnORtmEIIhuQ5udvof7RS2=
+UYBkidw8wfe7SvOh27z1R3%2BGmaGAamLCxXmAaRI0BmY3WXvR2MfN9Irbm1sLrKg%3D%3D&iv=
+=3D55Tg0AxINpEgH2h2YB8xrQ%3D%3D" style=3D"text-decoration:underline;color:#=
+0071dc">Terms of Sale</a></p></td><td align=3D"right" style=3D"padding-top:=
+4px"></td></tr></tbody></table></td></tr></table></td></tr></tbody></table>=
+</div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D""=
+ ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-heig=
+ht:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0 auto;border-radius:0;max-width:700px"><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"width:100%;border-radius:0"><tbody><tr><td style=3D"border:none;direct=
+ion:ltr;font-size:0;padding:0 32px 0 32px;text-align:center" class=3D"secti=
+on-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align=
+:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-=
+group-fix" style=3D"font-size:0;text-align:left;direction:ltr;display:inlin=
+e-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td sty=
+le=3D"border:none;border-radius:0;vertical-align:top;padding:0"><table bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D=
+"100%"><tr><td style=3D"font-size:0;padding:0;padding-top:24px;padding-bott=
+om:24px;word-break:break-word"><p style=3D"border-top:solid 1px #e6e7e8;fon=
+t-size:1px;margin:0 auto;width:100%"></p><!--[if mso | IE]><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-to=
+p:solid 1px #e6e7e8;font-size:1px;margin:0px auto;width:636px;" role=3D"pre=
+sentation" width=3D"636px" ><tr><td style=3D"height:0;line-height:0;"> &nbs=
+p;
+</td></tr></table><![endif]--></td></tr></table></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></ta=
+ble></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" =
+><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0 auto;border-radius:0;max-width:700px"><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"width:100%;border-radius:0"><tbody><tr><td style=3D"border:none;direct=
+ion:ltr;font-size:0;padding:0 32px 0 32px;text-align:center" class=3D"secti=
+on-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align=
+:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-=
+group-fix" style=3D"font-size:0;text-align:left;direction:ltr;display:inlin=
+e-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td sty=
+le=3D"border:none;border-radius:0;vertical-align:top;padding:0"><table bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D=
+"100%"><tr><td align=3D"left" style=3D"font-size:0;padding:0;word-break:bre=
+ak-word"><div style=3D"font-family:helvetica;font-size:16px;line-height:1.3=
+8;text-align:left;color:#000"><span><p style=3D"margin:0;color:#2e2f32;font=
+-feature-settings:'clig' off,'liga' off;font-family:Helvetica;font-size:24p=
+x;font-style:normal;font-weight:400;line-height:normal">Billing &amp; payme=
+nt</p></span></div></td></tr></table></td></tr></tbody></table></div><!--[i=
+f mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><=
+!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" ><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" s=
+tyle=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-height:0px;font-=
+size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0 =
+auto;border-radius:0;max-width:700px"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;border-radius:0"><tbody><tr><td style=3D"border:none;direction:ltr;font-=
+size:0;padding:0 32px 0 32px;text-align:center" class=3D"section-wrapper"><=
+!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:63=
+6px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" st=
+yle=3D"font-size:0;text-align:left;direction:ltr;display:inline-block;verti=
+cal-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"border:=
+none;border-radius:0;vertical-align:top;padding:0"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><t=
+d style=3D"font-size:0;padding:0 32px;padding-top:0;padding-right:0!importa=
+nt;padding-left:0!important;word-break:break-word"><!--[if mso | IE]><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D=
+"" style=3D"width:636px;" width=3D"636" ><tr><td style=3D"line-height:0px;f=
+ont-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margi=
+n:0 auto;max-width:636px"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody>=
+<tr><td style=3D"direction:ltr;font-size:0;padding:0 32px;padding-left:0!im=
+portant;padding-right:0!important;padding-top:0;text-align:center" class=3D=
+"section-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"width:31=
+8px;" ><![endif]--><div class=3D"mj-column-per-50 mj-outlook-group-fix" sty=
+le=3D"font-size:0;line-height:0;text-align:left;display:inline-block;width:=
+100%;direction:ltr"><!--[if mso | IE]><table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" ><tr><td style=3D"vertical-align:t=
+op;width:318px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-gr=
+oup-fix" style=3D"font-size:0;text-align:left;direction:ltr;display:inline-=
+block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=
+=3D"vertical-align:top;padding-top:24px"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D=
+"left" style=3D"font-size:0;padding:0;padding-bottom:8px;word-break:break-w=
+ord"><div style=3D"font-family:Helvetica;font-size:16px;font-style:normal;f=
+ont-weight:700;line-height:22px;text-align:left;color:#515357">Bill to</div=
+></td></tr><tr><td align=3D"left" style=3D"font-size:0;padding:0;word-break=
+:break-word"><div style=3D"font-family:Helvetica;font-size:16px;font-style:=
+normal;font-weight:400;line-height:22px;text-align:left;color:#515357"><p s=
+tyle=3D"margin:0;color:#515357;font-family:Helvetica;font-size:16px;font-st=
+yle:normal;font-weight:400;line-height:22px">Dong Liu</p><p style=3D"margin=
+:0;color:#515357;font-family:Helvetica;font-size:16px;font-style:normal;fon=
+t-weight:400;line-height:22px">16419 53 st NW</p><p style=3D"margin:0;color=
+:#515357;font-family:Helvetica;font-size:16px;font-style:normal;font-weight=
+:400;line-height:22px">Edmonton, AB</p><p style=3D"margin:0;color:#515357;f=
+ont-family:Helvetica;font-size:16px;font-style:normal;font-weight:400;line-=
+height:22px">t5y0h4</p></div></td></tr></table></td></tr></tbody></table></=
+div><!--[if mso | IE]></td></tr></table><![endif]--></div><!--[if mso | IE]=
+></td><td class=3D"" style=3D"width:318px;" ><![endif]--><div class=3D"mj-c=
+olumn-per-50 mj-outlook-group-fix" style=3D"font-size:0;line-height:0;text-=
+align:left;display:inline-block;width:100%;direction:ltr"><!--[if mso | IE]=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" ><tr><td style=3D"vertical-align:top;width:318px;" ><![endif]--><div cl=
+ass=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0;text-al=
+ign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding-top:24=
+px"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0;padding:0=
+;padding-bottom:8px;word-break:break-word"><div style=3D"font-family:Helvet=
+ica;font-size:16px;font-style:normal;font-weight:700;line-height:22px;text-=
+align:left;color:#515357">Payment method(s)</div></td></tr><tr><td align=3D=
+"left" class=3D"listTable-0-2056288-9" style=3D"font-size:0;padding:0;word-=
+break:break-word"><table cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" width=3D"100%" border=3D"0" style=3D"color:#000;font-family:helveti=
+ca;font-size:16px;line-height:1.38;table-layout:auto;width:100%;border:none=
+"><tbody role=3D"list"><tr role=3D"listitem"><td align=3D"left" style=3D"li=
+ne-height:19px;padding-top:8px;width:5%;padding-right:10px"><img src=3D"htt=
+ps://i5.walmartimages.com/dfw/4ff9c6c9-fa65/k2-_54a8246f-0ee7-4529-9858-6b0=
+414da2bcc.v1.png" style=3D"width:20px;height:12px"></td><td align=3D"left" =
+style=3D"color:#515357!important;font-family:Helvetica!important;font-style=
+:normal;font-weight:400;font-size:16px!important;line-height:19px;padding-t=
+op:8px;width:60%"><span style=3D"color:#515357">MASTERCARD ending in 1977</=
+span></td><td align=3D"right" style=3D"color:#515357!important;padding-top:=
+8px;width:35%;font-family:Helvetica!important;font-style:normal;font-weight=
+:400;font-size:16px!important;line-height:21px;text-align:right">$ 121.68</=
+td></tr></tbody></table></td></tr></table></td></tr></tbody></table></div><=
+!--[if mso | IE]></td></tr></table><![endif]--></div><!--[if mso | IE]></td=
+></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]=
+></td></tr></table><![endif]--></td></tr></table></td></tr></tbody></table>=
+</div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D""=
+ ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-heig=
+ht:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0 auto;border-radius:0;max-width:700px"><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"width:100%;border-radius:0"><tbody><tr><td style=3D"border:none;direct=
+ion:ltr;font-size:0;padding:0 32px 0 32px;text-align:center" class=3D"secti=
+on-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align=
+:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-=
+group-fix" style=3D"font-size:0;text-align:left;direction:ltr;display:inlin=
+e-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td sty=
+le=3D"border:none;border-radius:0;vertical-align:top;padding:0"><table bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D=
+"100%"><tr><td align=3D"left" style=3D"font-size:0;padding:0;word-break:bre=
+ak-word"><div style=3D"font-family:helvetica;font-size:16px;line-height:1.3=
+8;text-align:left;color:#000"><span><p style=3D"margin:0;line-height:24px">=
+&nbsp;</p><p style=3D"margin:0"></p><div style=3D"padding-bottom:24px;backg=
+round:#fff;justify-content:flex-start;align-items:flex-start;display:inline=
+-flex"><div style=3D"flex:1 1 0;background:#f1f1f2;border-radius:4px;border=
+:.5px #babbbe solid;justify-content:flex-start;align-items:flex-start;paddi=
+ng-right:8px!important;display:flex"><div style=3D"width:4px;align-self:str=
+etch;background:#000;border-top-left-radius:4px;border-top-right-radius:4px=
+">&nbsp;</div><div style=3D"width:16px;height:36px;padding-top:10px;padding=
+-left:8px;flex-direction:column;justify-content:flex-start;align-items:flex=
+-start;display:inline-flex"><div style=3D"padding:1px;justify-content:flex-=
+start;align-items:flex-start;display:inline-flex"><img src=3D"https://i5.wa=
+lmartimages.com/dfw/4ff9c6c9-e299/k2-_72b3aa23-65ed-48de-813a-f0344e04de80.=
+v1.png" style=3D"width:14px;height:14px"></div></div><div style=3D"flex:1 1=
+ 0;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:8px;f=
+lex-direction:column;justify-content:flex-start;align-items:flex-start;padd=
+ing-right:8px!important;display:inline-flex"><div style=3D"align-self:stret=
+ch;justify-content:flex-start;align-items:flex-start;gap:16px;display:inlin=
+e-flex"><div style=3D"flex:1 1 0;color:#515357;font-size:14px;font-family:H=
+elvetica!important;font-weight:400;line-height:21px;word-wrap:break-word">O=
+nce your order is ready, a receipt for the total amount with taxes and fees=
+ will be sent to you. Any authorization holds will be removed by the issuin=
+g bank, according to their policies.&nbsp;</div></div></div></div></div><p =
+style=3D"margin:0"></p></span></div></td></tr></table></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbod=
+y></table></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=
+=3D"" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div=
+ style=3D"margin:0 auto;border-radius:0;max-width:700px"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"width:100%;border-radius:0"><tbody><tr><td style=3D"border:none;=
+direction:ltr;font-size:0;padding:0 32px 0 32px;text-align:center" class=3D=
+"section-wrapper"><!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical=
+-align:top;width:636px;" ><![endif]--><div class=3D"mj-column-per-100 mj-ou=
+tlook-group-fix" style=3D"font-size:0;text-align:left;direction:ltr;display=
+:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><=
+td style=3D"border:none;border-radius:0;vertical-align:top;padding:0"><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" wi=
+dth=3D"100%"></table></td></tr></tbody></table></div><!--[if mso | IE]></td=
+></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]=
+></td></tr></table></td></tr><tr><td class=3D"" ><table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:70=
+0px;" width=3D"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]--><div style=3D"margin:0 auto;border-radi=
+us:0;max-width:700px"><table align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;border-radius=
+:0"><tbody><tr><td style=3D"border:none;direction:ltr;font-size:0;padding:0=
+ 32px 0 32px;text-align:center" class=3D"section-wrapper"><!--[if mso | IE]=
+><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0"><tr><td class=3D"" style=3D"vertical-align:top;width:636px;" ><![endif]=
+--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size=
+:0;text-align:left;direction:ltr;display:inline-block;vertical-align:top;wi=
+dth:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" width=3D"100%"><tbody><tr><td style=3D"border:none;border-radi=
+us:0;vertical-align:top;padding:0"><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D"left"=
+ style=3D"font-size:0;padding:0;padding-top:24px;padding-bottom:24px;word-b=
+reak:break-word"><div style=3D"font-family:helvetica;font-size:16px;line-he=
+ight:1.38;text-align:left;color:#000"><span><p style=3D"margin:0;font-famil=
+y:Helvetica;font-style:normal;font-weight:400;font-size:24px;line-height:24=
+px;color:#2e2f32">Shop anywhere with the Walmart app</p></span></div></td><=
+/tr></table></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></t=
+able><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></t=
+r></table></td></tr><tr><td class=3D"" ><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:700px;" wid=
+th=3D"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-=
+rule:exactly;"><![endif]--><div style=3D"margin:0 auto;border-radius:0;max-=
+width:700px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"width:100%;border-radius:0"><tbod=
+y><tr><td style=3D"border:none;direction:ltr;font-size:0;padding:0 32px 0 3=
+2px;text-align:center" class=3D"section-wrapper"><!--[if mso | IE]><table r=
+ole=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><=
+td class=3D"" style=3D"vertical-align:top;width:636px;" ><![endif]--><div c=
+lass=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0;text-a=
+lign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%"><tbody><tr><td style=3D"border:none;border-radius:0;vert=
+ical-align:top;padding:0"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D=
+"font-size:0;padding:0;word-break:break-word"><div style=3D"font-family:hel=
+vetica;font-size:16px;line-height:1.38;text-align:left;color:#000"><span><d=
+iv style=3D"display:flex"><p style=3D"margin:0"><a href=3D"https://w-mt.co/=
+rptrcks/comm-smart-app/services/tracking/clickTracker?redirectTo=3DHL1HUR0i=
+blenoa%2Bw6FZDGf6nirEf8%2FXisfW%2Fr8NX8salCHOJjmkB7fcSoliAsMiss%2BFMb%2Bl%2=
+BtFeSADB6kk9QviHRSKjcLpWTNDkZdo6wYhl%2F5Wy6bSAVeIDMRK9aYP2VSOfrVh1CTy3C%2Bs=
+V6Kx%2FzPgnZH6TSSil68TCd4BBHoAGBgpD5XolIs4JcUYGsmI2Bwo3hdqSl91XHDJPmBU0zMoF=
+8Vo2laXCcb%2B0yoDie3jzxnhzHAaBZylUf6tw2uSzzDZAzuEV%2BvdJ3NS%2B9SB4eEenQMBKb=
+h6a42Iq8rUYyiLSzgelwO6Nn18eBBCG0dHhxOsB%2F8uNVfEAbxQhAJ7KpUWnk06JuFFu9T8Kpm=
+9ejEiLHfpr1TzaGzb0r5lsQfV0v6THTu2k4ls8LP3JMam0%2Fk3qnOAa%2FoM2H5D4AMPelssfU=
+K3Mp0rO2EOI9Pv87Ua1SGX6pPjoZoTJthvOK3V10iQ%3D%3D&meta=3DGDvh4%2BeoG3xECc8VY=
+zcrHnbOtDnnN4BykuNlKmjZUXgjDh%2BzZxpsvgWbbuH%2FokN9T%2FK85aYxSydHphLb%2BAO5=
+nDRO9W8%2FKmq0dSFtBCdwoDLdV51%2FS0Xlb4rSsYeV%2BCpSqJpAOmklI9nTM5PXEfXQrSLGE=
+ETg45yj1mboncLMTULfDVK1N5vIUXO9qr316V0zmLdUKVxqvkGVl7Awrj0bVg%3D%3D&iv=3Dei=
+NaL1HVKRwDY1seeNpQVw%3D%3D" style=3D"text-decoration:underline;color:#000">=
+<img src=3D"https://i5.walmartimages.com/dfw/4ff9c6c9-435c/k2-_ac446014-36d=
+9-4fc2-8bb0-812ce924f5f6.v1.png" style=3D"height:37.647056579589844px;width=
+:112.94915771484375px;border-radius:4px"></a></p><p style=3D"margin:0;margi=
+n-left:24px"><a href=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tra=
+cking/clickTracker?redirectTo=3DaJZ12OY9bvlDn3WM%2FvuzFTTq2DmcvzgAOjAoY%2FH=
+dOd6RQOn1KyhDqxfQii83BhxF3uKmKt71aJ%2F92HxVRvtiSW4gE4LgpsMfUle1tAyCgySjxbUz=
+v%2F%2BPkUk6ReTA48Uas9Qne9niTL8dvrKNGSpDwMZPJifaYoNszZWHLM9XsLvxn6z1scIOeTG=
+PYJH2H37KrftKDQq8n7mQzxwiY%2FDOhAwTfxTxUm2hpKX%2F9o3vK2pHMSmvTt%2Bc17hMEfsL=
+IzGH5GJ1lW%2BpVSXpXPBowCEEnxwhmkiWyF7IrjjzUyRE9i2wRes3SlGJKhWwo4NDy9xzTvXAW=
+UJ5%2BppL18xPrKfWci8dHXenB%2BTp0HuJccdre1Wj0OP0R19gKr9gtaA49jYqoFQkuEffbEvG=
+FPJTtcN0fICH7URe2mFTXOODLmvgEPi205qfxekzTGf8xUSNrfTEvRaPM92MzQdQGBLG%2FCU%2=
+BNg%3D%3D&meta=3DCTMwS6dYCM6LLZgapmy6Ks52%2Fw52k5CmdQVHaZzxouwk87g1kr8%2FpL=
+%2F98awON2ml0pXNuhNwuJgOQnwoRWBNc64OS1hpX%2BKJkSN5XCfHHc7PiERU3uuHZIG0K%2Fd=
+yLqV1VOzI6ivMD4jqwm68IcdEMsc0EFjd59V3nWMHC06w4%2Fdepc6bWPrYfVe68lVDcWSNPx5m=
+bazYTe5dvpAwzCfxlA%3D%3D&iv=3DKchk2DMvDQM7a4f0dwgV6w%3D%3D" style=3D"text-d=
+ecoration:underline;color:#000"><img src=3D"https://i5.walmartimages.com/df=
+w/4ff9c6c9-a8b9/k2-_de7cf21d-790d-4e85-96ee-b66b94a93f53.v1.png" style=3D"h=
+eight:37.647056579589844px;width:112.94915771484375px;border-radius:4px"></=
+a></p></div></span></div></td></tr></table></td></tr></tbody></table></div>=
+<!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" ><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"ma=
+rgin:0 auto;max-width:700px"><table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%" autom=
+ation-id=3D"footer"><tbody><tr><td style=3D"direction:ltr;font-size:0;paddi=
+ng:0;text-align:center"><!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" width=3D"70=
+0px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td style=3D"line-=
+height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div st=
+yle=3D"margin:0 auto;max-width:700px"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0 32px;paddin=
+g-left:0;padding-right:0;text-align:center" class=3D"footer-wrapper"><!--[i=
+f mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:700px;"=
+ ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=
+=3D"font-size:0;text-align:left;direction:ltr;display:inline-block;vertical=
+-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-a=
+lign:top;padding-top:24px"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tr><td style=3D"font-size:0;p=
+adding:0;word-break:break-word"><p style=3D"border-top:solid 4px #000;font-=
+size:1px;margin:0 auto;width:100%"></p><!--[if mso | IE]><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:=
+solid 4px #000000;font-size:1px;margin:0px auto;width:700px;" role=3D"prese=
+ntation" width=3D"700px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></table></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></ta=
+ble></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" =
+width=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"" style=3D"width:700px;" width=3D"700" ><tr><td sty=
+le=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif=
+]--><div style=3D"margin:0 auto;max-width:700px"><table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0=
+ 32px;text-align:center" class=3D"section-wrapper"><!--[if mso | IE]><table=
+ role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr=
+><td class=3D"footerColumn-0-2056288-12-outlook" style=3D"vertical-align:mi=
+ddle;width:318px;" ><![endif]--><div class=3D"mj-column-per-50 mj-outlook-g=
+roup-fix footerColumn-0-2056288-12" style=3D"font-size:0;text-align:left;di=
+rection:ltr;display:inline-block;vertical-align:middle;width:100%"><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"vertical-align:middle" width=3D"100%"><tr><td style=3D"font-size:0;word=
+-break:break-word"><!--[if mso | IE]><table role=3D"presentation" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"24" style=3D"vert=
+ical-align:top;height:24px;"><![endif]--><div style=3D"height:24px">&nbsp;<=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr><tr><td alig=
+n=3D"left" class=3D"footerTitle-0-2056288-10" style=3D"font-size:0;padding:=
+0;word-break:break-word"><div style=3D"font-family:helvetica;font-size:14px=
+;line-height:1.38;text-align:left;color:#000"><p style=3D"margin:0;font-fam=
+ily:Helvetica;font-style:normal;font-weight:400;font-size:14px;line-height:=
+20px;color:#242424"><span style=3D"font-weight:700!important">Questions? </=
+span><span style=3D"color:#242424;font-size:14px">Visit our </span><a href=
+=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tracking/clickTracker?r=
+edirectTo=3DFMZw%2F%2FcIpeSqWX1AgQJyzvZ9n7AjE83C%2BfKuwaIVvX%2FxGpsyzumHwbp=
+tXGGT%2F20x2z1HXo1KW0%2FbROz19myZyOoLvdPcU%2F26THSt2Gz0kfTZEbIQBOrm6aAGC4VO=
+Kwbw0F5o31fewSzzzFtZUpMqwThCApoA3YVPq0cFz5aQtEE524fJTXJVXKp29%2B1xIM6pGycZX=
+AsONTks4xqdB3jqwpZRJhKZ9ELjlK5sKt9BNybeRPzLbL2c5YwFDdJSSW4%2BoEKqXdp5Pc75qa=
+w6oEoVWOaz36Oi3mWUKrLFV1oFyZW0fJAFynvSqdfYuQgK%2BzTT9VZXC9biwyBpepjfnxuBXkg=
+0%2BT73uhfjPs2T%2BhhZHrXUee5Gajvo00cnUBc0oxK2IDSpp9tYp19521qau44jmV5pVPOY9G=
+hrvo8QmYCxl7c%3D&meta=3DESi6iGvkMnhP%2B7r0zoNyodcQbPJj8Vxyqi0MuN16fombawB2t=
+9e23VoAk8ClqSt4UWgN0%2F3ceMMHvhl747wJUAFaQdsnpL7J8SivsaHpGeksmm7uNKWuGYubey=
+uBcBYsT91T1%2B0DrTaq%2Fsp8cGAnSj%2Fe2AvnMm6%2FLQ%2BNl4iRIoLiB%2BucfqhG3yQEn=
+6m8M3HnRaFZDhcWsaaxaEttK1HhBQ%3D%3D&iv=3DupX4JAGGRFDnpb3kZ%2FmOKg%3D%3D" st=
+yle=3D"text-decoration:underline;color:#0071dc" target=3D"_blank">Help Cent=
+re</a></p></div></td></tr></table></div><!--[if mso | IE]></td><td class=3D=
+"footerColumn-0-2056288-12-outlook" style=3D"vertical-align:middle;width:31=
+8px;" ><![endif]--><div class=3D"mj-column-per-50 mj-outlook-group-fix foot=
+erColumn-0-2056288-12" style=3D"font-size:0;text-align:left;direction:ltr;d=
+isplay:inline-block;vertical-align:middle;width:100%"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-=
+align:middle" width=3D"100%"><tr><td style=3D"font-size:0;word-break:break-=
+word"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td height=3D"24" style=3D"vertical-align:to=
+p;height:24px;"><![endif]--><div style=3D"height:24px">&nbsp;</div><!--[if =
+mso | IE]></td></tr></table><![endif]--></td></tr><tr><td align=3D"left" cl=
+ass=3D"footerIcons-0-2056288-13" style=3D"font-size:0;padding:0;word-break:=
+break-word"><table cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" width=3D"100%" border=3D"0" style=3D"color:#000;font-family:helvetica;fon=
+t-size:16px;line-height:1.38;table-layout:auto;width:100%;border:none"><tr>=
+<td class=3D"socialLinks-0-2056288-11"><a href=3D"https://w-mt.co/rptrcks/c=
+omm-smart-app/services/tracking/clickTracker?redirectTo=3DV%2FR7%2BVGL5vRmE=
+smxqMpG6cbQ5ZIdJxZBdEYFoBCqc4xPZWIcbWdu4iw9qcQB6KhEd2s5vS%2F7nuRBkwQ9i0Xueh=
+h%2ByR%2BtkXN%2FpzJW%2Faw8B5P6q9XK0wYiQj3tQf1aMdpwYs1Lg%2BosQaVbudwxQpx41Gv=
+%2Bk5%2FE3r4BggtWvPbeAX%2BRL1WKwlVU26Vn9%2BcgVpA2bDf%2BUK4dw6oBf9M7qk2gtLnF=
+kn2CX0rnuVXLyG7hN2fs2X8NMdQMYciMfX8%2Baq%2FiyEbUdrEUIYagr6i6dJnVFnhOipux%2F=
+6QiAdLUeN0RAcPuNt72ZktGLLIgH6rzlF3dgzuZhGyiRIpaNWyrYJFudqZ5vW2gB6tM9CzrAMFI=
+ArqrZ9QG0EYHgQwibzP5OzM%2FRu%2FMR3pLtNdMojaYVaj%2BKg%2BSyYAO4d%2BD69PlSoa7m=
+0lAQpUQTpam7Q4ULr8KCvqwlUFkYF9mVZQdztuln9nakTccIRzShobLB4vkul7rPp4bE8gnRKOY=
+PLWUDXDZL%2Bmw4b85iwHwrjNGPGUiNPZisA%3D%3D&meta=3DsBBEuPPGk6murrcsxQ%2BPyzL=
+l66qsPzS5i26%2Fg89Cec5qh55dVGI71KDmJSjMaduYLyixxGbsNVcp84ZP6y%2BJGhU9qX0Ix7=
+d6seenT71BfszecxNfVcdkt8JCY4DIawbgoRKAU64qMU4XcOMhACtQwv5fwqvHg9ys5qWawROlx=
+L6eJBO1WqYpGq8uiLnYloWwy72KM9VGbZLJfxQ9tNPI0g%3D%3D&iv=3DWavr8Ls9ZuFvEcDtKl=
+K4gw%3D%3D" target=3D"_blank" rel=3D"noreferrer" style=3D"text-decoration:u=
+nderline;color:#000"><img width=3D"40" src=3D"https://i5.walmartimages.com/=
+dfw/4ff9c6c9-d4b0/k2-_42dd7a96-cee8-4556-8e43-2cd222b41fb0.v1.png" alt=3D"Y=
+outube"></a></td><td class=3D"socialLinks-0-2056288-11"><a href=3D"https://=
+w-mt.co/rptrcks/comm-smart-app/services/tracking/clickTracker?redirectTo=3D=
+JXAeYkWvwObsjG5rNA65aNm667KjRkHGiTpBlAa3pPA%2BOWBvm2%2BaXHJ0JhWSJBfDQ2JvH0b=
+W5kPVerHmBjHs3SS1tcZbpVLjtwYd%2BKKlbeYen%2F9q%2FRQdnzBN7JUOlc31jW3CyECpF1%2=
+B91brKEouV8gRcWMAfyejNeE3YQZI9%2B7EuaUW7NAQkwPloQiFpLKNx4GszmKl1xLSUtlbrgTC=
+EDHrq7APPi1JLM7s0tYOTRA03vcmv%2BYBP5gUzdtrgPKQ73440CPuGNn86Mw5UoxPBMC4HdRuh=
+VwO4cQ%2F55IYyD9KJidNZhH%2Bv762uSfxN3m8TDLjToKTmuK5e9pkyLYI%2F9HLnECf7YR8sE=
+CqcPKUO%2BI2M8WcpCubRd5hKG%2BLdehHkhhqVXQN8h%2FlcJA66wYEseeFXUr91p%2FfOAfaV=
+YTs8QCP3A%2BITEtKhAuj2aeVievq0whG3Sdi1iU0JoS%2Frt6kJWtCAx%2FhXmrpwaygu%2BWZ=
+NCuU2J8X9X43BDHy9ck3VvMKXdQJuDgwUy7CQRNOVHj7ZyrsGF67ERGVjzfk57FD%2F8Eo%3D&m=
+eta=3Dr88z7WYsSuxUT%2BNgRD4DZPBvUQAvQFNVyroDALpWngHaIRHwaW6gqU53Ace19BaAQa8=
+OV%2BJbh%2BsyhVN8Wa4dmyGieXNhwr1RZe7cRh3LYaRHkZn1FJAIPY%2B4O1t8cd%2Fu%2FObW=
+WxawbDPtHPJ4e6njG%2FBgfEe7OeJ0jllGxe1nBjFgDHnsMJQQRv8L%2BxHU80iqwQKN1bbpoMG=
+xZ1E9yQQcyw%3D%3D&iv=3Dfu5u%2FmM8C61dD5YSmGyu1A%3D%3D" target=3D"_blank" re=
+l=3D"noreferrer" style=3D"text-decoration:underline;color:#000"><img width=
+=3D"40" src=3D"https://i5.walmartimages.com/dfw/4ff9c6c9-f190/k2-_6b9952f6-=
+107e-47a8-aa7c-9e7736ed0c95.v1.png" alt=3D"Pinterest"></a></td><td class=3D=
+"socialLinks-0-2056288-11"><a href=3D"https://w-mt.co/rptrcks/comm-smart-ap=
+p/services/tracking/clickTracker?redirectTo=3DZAbmtzhux6qcErV8lhOGs5RnPqJv%=
+2FpRuNWGfKOBE%2BTkupubfTbXt%2FPsV%2F5nL%2FTM7IkfyKx%2Fdfczf0dCZCXmSb5EMLZTP=
+h5BW5bp0Mab2fUWWTAHlA3WzkSwrSd7NeynuLh1kdvEKLBWcxcDcRPAmWTNI0HL5WV912Chjrrx=
+YEw9bt6Lw11e%2BAm1%2BpDzEy0xEH17JU1q677JuJ6%2F2QhKiH6zfnP8T0sOmT7N4m%2F9rqZ=
+ZVfhzGS9aVcsOtwEk4W4TUYJHWXdoxlLLT5xdYQlld3%2Fm9wvlYF%2BvjAg4nvjrBcsElzjNOk=
+K58EUWcltInAko78ysBxAbtMQvWHMwTm1374mxOm9WQC8W5QzQXdy3YCrkDXwdSIBNahf6C0%2B=
+5i94VR1EGj0ZxHx8X8M%2Fiu2Zk9j4HRkFWMFVQ0SLGLuNE7SYg%2B8%2BRKjhlBCKcqyO34Wi9=
+L83h7If3%2FUvkCDxHV81Fi2ACOUzlUa%2BbJWOO51cSp1f8Qw4EhUZfJPIzsYqeiGZCovVynYj=
+piKVykujxI7MkMDpI5EPe7kgkeK7VSmfu1mk0%3D&meta=3D9Qj4OQCr64pPu21UTZTCep%2FAv=
+Zrro8Huh7lCOQHkgPl0Bvy%2BUooNZKuR3O3t2r6J0VHvkURbPKl4qFCqWpRGnw9G2zfg3Hk0Cy=
+QYzI7qj%2FwGFF5ifkUHGODvu6AKhL%2FsDBNzhzkUkPW%2BgUD6IC5roulyH5Yy4Yp2h7nn5j9=
+G9cIWto78w42lMHqwYdYWrDgP0yrvLV%2FgVdY3MM2DqdxAyA%3D%3D&iv=3DrIH92ICR1NnnrD=
+4EYUK0ag%3D%3D" target=3D"_blank" rel=3D"noreferrer" style=3D"text-decorati=
+on:underline;color:#000"><img width=3D"40" src=3D"https://i5.walmartimages.=
+com/dfw/4ff9c6c9-bf3d/k2-_b6bd91de-a55e-4901-abd6-984877c50f72.v1.png" alt=
+=3D"Facebook"></a></td><td class=3D"socialLinks-0-2056288-11"><a href=3D"ht=
+tps://w-mt.co/rptrcks/comm-smart-app/services/tracking/clickTracker?redirec=
+tTo=3DjfZk3HrIw9TvXTI9uKnHBPe13HY5e6uYP4T4IwJvnr5POlJQCHrTNEBeN%2Bv1TUde4qd=
+TKJPhJkHixqkB8P7N%2B3mzrrgl8slxb%2BusRmrKrAuiOHHH8HeqECW0j5NZ9zmS4V37OqNoFm=
+ANz1sTMpGW1Ha0Cw7t1VepuLalXNzi740F%2F29yoyG%2FNp5aMr4duOkIb3%2B2GMSMHTLKw0s=
+sqANte6dYpu2MpjHAJJNY83Ra2Mj0Hsyk%2FIDirB6xYIFxOq88mJzEu1poH46F%2B2GooG%2BC=
+wT%2FpwyHhg7sekVsNvvteviWSOzxf68AApYo1aMtWJ4eStMO50QnwF7VWw0eNAWujv0YsQTRP0=
+5%2F814%2FI0mG%2B%2Bliioh3fC2X26PPMLDyCPIjAMgIug2v57BeKiRMGiXoRzq9jC%2Bvw0w=
+rxkpzyGSMb%2BKttwBlkJ5o9E912%2FCEPXHvdYBGMu7Y4y0gEmPNHPWvzk%2F9UBgrD%2BpBLj=
+jHAaACm%2BIo%2F39HtxYZ2UNBreexzB2vyac9zgVREmKsYsGFknHVvz1vMW1wHI35cDnW6QygY=
+Okc%3D&meta=3DDaElcJGX5AsE7ZYZZ%2BF1MDLldUTDYiviRM%2FeVcMPWhUAFo%2BwDXqm6X0=
+0fqsaE53yWxQx9lkgGOE6AErBFL96Yv%2F4syzr%2BVasfO0FFijAh6QwSJKda3oyG%2BOVqG%2=
+FEXUSlaY1Q28qvex%2F4DOo4Mge6aD4lWE%2BJg4xby2wPvrzDrSmCZn9oQtCuM86zkQxTpfM1s=
+CGBzkzL%2FccMu45JSo3mEA%3D%3D&iv=3Du2pUtXxMLUN7yyG85pPo%2Fw%3D%3D" target=
+=3D"_blank" rel=3D"noreferrer" style=3D"text-decoration:underline;color:#00=
+0"><img width=3D"40" src=3D"https://i5.walmartimages.com/dfw/4ff9c6c9-5727/=
+k2-_65f87b94-cd0c-47f8-bebb-5efb88bb5415.v1.png" alt=3D"Instagram"></a></td=
+><td><a href=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tracking/cl=
+ickTracker?redirectTo=3DtcTyDJRbhqDyFLnEiIjijPOxr8yYbE1vSevEV4l5wqzZAuzS6oY=
+QrfQEF3WjvmCPP%2BLxuI4BCcrLpZy%2FP4xSPAIbmYFXbJJSTPeybhCROxfeFkmAxMhzwahK1L=
+INn2tEyaRytPrG1slfsqa7YVUO%2BKghkcYwaKin4lxWBGRVKOImG6snFuzdGGpsZe9uOtfJCW8=
+hJXupUsu90ijAw0gPteqsIj3vhzm%2B%2FgLU8H%2BZMpOSFFuAWWiKdXGvCWzuEcrhi8%2BTyp=
+jVgNlAnNcUWrfLLh1sCKCtY5wbHo0w2ZM6wC5ASqMqgMVSqADYlCExPuHl4J5pBA4ASFV%2Bscj=
+DWmvmhW89XOXRdaj0SFMZQqxy4DHks%2F%2F00DnysLsgccgI%2FFpQH7%2BbQjEL7pNa5F%2Bu=
+2bPGXtFVip8K%2F%2Bb%2BfPVXMagVqlSHWJutKD%2BJPwZzCjvkKCJ5WY8Bz0vpDH4TGZzmpJZ=
+XgYNmeF3KjzqQuQjswC%2FSPTERnH1r%2FsL3%2FDZMDBrh%2Fyp301UGgQLK1r%2FRLPSI9kOk=
+Mg%3D%3D&meta=3DSRG6JHjYnNUxXhDU07pjDz39o5P74Ig3m3EQhEaYSIjjIvq9jA28Qu43UY6=
+GVmYxmHajcAP27rVXDmzb8FRF0ne%2BlJdEns5bPJ%2BIOtJB5Src28fYtMLUYy24hIAxvSAKpJ=
+tBLaxYTxWRzfvHjLrabkhebpuqvOYT0ndGugWQPPNFUnNzl%2FBIqNc2lXaVMhaDGoUmQlZIri7=
+gX4NdRcbGKA%3D%3D&iv=3DP9lzpF4dBNEZ3jV3VDONvQ%3D%3D" target=3D"_blank" rel=
+=3D"noreferrer" style=3D"text-decoration:underline;color:#000"><img width=
+=3D"40" src=3D"https://i5.walmartimages.com/dfw/4ff9c6c9-a48f/k2-_0625a845-=
+8e55-4143-91c0-681bb47ed342.v1.png" alt=3D"Twitter"></a></td></tr></table><=
+/td></tr></table></div><!--[if mso | IE]></td></tr></table><![endif]--></td=
+></tr></tbody></table></div><!--[if mso | IE]></td></tr></table></td></tr><=
+tr><td class=3D"" width=3D"700px" ><table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:700px;" width=3D=
+"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:=
+exactly;"><![endif]--><div style=3D"margin:0 auto;max-width:700px"><table a=
+lign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0;padding:0 32px;text-align:center" class=3D"section-wrapper"><!--[if=
+ mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:636px;" =
+><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D=
+"font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"vertical-align:top" width=3D"100%"><tr><td =
+style=3D"font-size:0;padding:0;word-break:break-word"><!--[if mso | IE]><ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" style=3D"width:636px;" width=3D"636" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"ma=
+rgin:0 auto;max-width:636px"><table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%" autom=
+ation-id=3D"undefined"><tbody><tr><td style=3D"direction:ltr;font-size:0;pa=
+dding:0;text-align:center"><!--[if mso | IE]><table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" width=3D=
+"636px" ><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0"><tr><td height=3D"16" style=3D"vertical-align:top;height:16px;"=
+><![endif]--><div style=3D"height:16px">&nbsp;</div><!--[if mso | IE]></td>=
+</tr></table></td></tr><tr><td align=3D"left" class=3D"" width=3D"636px" ><=
+![endif]--><div style=3D"font-family:helvetica;font-size:14px;line-height:1=
+.43;text-align:left;color:#666"><p style=3D"margin:0;font-family:Helvetica;=
+font-size:14px;color:#515357;font-weight:400;line-height:21px;letter-spacin=
+g:0;text-align:left">We may collect and use your personal information to im=
+prove and customize your shopping experience with us. We may also use this =
+information or share limited information (e.g. email address or basic purch=
+ase details) with trusted third parties to personalize the marketing you re=
+ceive through Walmart and other sites and platforms. To learn more and unde=
+rstand how to manage your choices, refer to our <a href=3D"https://w-mt.co/=
+rptrcks/comm-smart-app/services/tracking/clickTracker?redirectTo=3DLDqyXM8U=
+gHOEVZ%2B08ijB3WojDVo47kwSeE%2F5AfDZukjObxjnX1v9XU6Rt%2FLB1zZq0XNX9NMGyGz8m=
+92vcvYBCS%2BU1xEKZsXKGsWAaD2DMtxzdhhWHeVWY2oa5e%2BhFJAOaRC%2BdCJBvqDKE3APLd=
+JhShyTEPuIkcKCk1aeJrnAaOgyb%2BBwBUQ4EZQTQ4hNXFI1Zn3v3xjhHWfcwdptbb9GAei0pou=
+4EZM%2Bunhex7oG8Fj3rn1QI4pO8CS1tYYnu3yRRjUnnfYGd3Gw3n94qOHQ1DCce5WSbs74OT90=
+3OLBWPpFmydOAjNMgbTrFV6xr1pO1Barr%2B%2F17p4QxPgU0kx3T2iUHTc%2BWLRNIs8lCaKWw=
+wBrkk%2BJRKg7hkXaHOmcTFkMM%2FTSblJmUC%2BI88%2B8ck3hMtcaNrZQBIeePak2M2Xun9nL=
+WGTv3xAZQxrB9s9lfkW0&meta=3DyunHLoPLkCkndIQ7h5w9EPLjfgcZS2KGLkP4rUQZgdPTGPL=
+57XEuvMXFoPT%2Ff2OhHyHTBdSHLH%2BumcrjLQqm8%2Fe6X8x%2FB%2FlK%2FlKeXgPC4Mk47R=
+YKVFOehNlm2tAker13S50XNhv9Byd3pi28xSsQzwf7Noxf30AP9Gcw5pwRcl2eK9%2BtWBl0qF9=
+%2BnQ8ETaAzPTy86YX57mhUYl39%2FursvA%3D%3D&iv=3DaYIWeePEw5xkTMwzmIWVOQ%3D%3D=
+" style=3D"text-decoration:underline;color:#0071dc">Marketing Notice</a>.</=
+p><p style=3D"margin:0">&nbsp;</p><p style=3D"margin:0;font-family:Helvetic=
+a;font-size:14px;font-weight:400;line-height:21px;color:#515357;letter-spac=
+ing:0;text-align:left"><a href=3D"https://w-mt.co/rptrcks/comm-smart-app/se=
+rvices/tracking/clickTracker?redirectTo=3DK3X4DuwZ0kXh5%2FRlKetjQJjClr3utbO=
+kUANNFuq4S72UQhgx0oMC0dRmA5A8akKhSL%2BRMAs8jE64fCVAGEojT2pTdm2Wx6CUWyTTHW0E=
+Qzewd1pzTFStzmIzMC0LWrOZbdOpCrlHV%2BKnUi3gKXZsbQuxDh%2BWReriMQ%2BJFN2pyVfnD=
+e7L1S0tayNm29fYEI%2FH2ZdLiZgt%2BcWGLU7dNXsUtmHP%2BlmOgCp5DFuUp9ZcUdGWL8irR6=
+yjyVpS9SeU6w3dFQkL4TmU8gRSGyBqAY5Sw0KHasKpix8maf0HOogFNiBdk7IpB2NoVCFwyd9lj=
+JEXQQbidFhf5H3jh3WCgS2icKnSFpkMwSwXFiniXqP4AUqcnRHI0Skx89zZB7RPmeaZ67c82ttE=
+JUeRaj%2BMkhnMSFYCL831faPGqnm5iYcVE3DaeJYE9977ozCY0GKMl0PI&meta=3DW22qgIIVS=
+OVGn4La0FxArymSh2IJsSjJxjzVpyOzEddlBQOLJbBUq5stx7uUw7gLKiiyLPBKYhUgvPQUEmTP=
+8VogkE%2FhiH%2BT0Y05kwRJdJ2azR5HLZtHlbjJBCKZPQ7rjKZN6L45Etp0J9BwUq8Uo%2FvoL=
+Ln0fGp7yKTlG%2FO0HP9zwcTcBUqVtKE0Di8KFBc1qJWKq0cJs7Y0UVgXa70z0A%3D%3D&iv=3D=
+2CG4v7cXIlF7PN14g4D5%2FQ%3D%3D" style=3D"text-decoration:underline;color:#0=
+071dc">Unsubscribe</a> if you no longer wish to receive marketing and promo=
+tional messages sent by or on behalf of Walmart. Please note that even when=
+ you unsubscribe, you may continue to receive safety notices and transactio=
+n-related messages from Walmart.&nbsp;</p></div><!--[if mso | IE]></td></tr=
+></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td=
+></tr></table><![endif]--></td></tr><tr><td style=3D"font-size:0;padding:0;=
+word-break:break-word"><!--[if mso | IE]><table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:636px;" wi=
+dth=3D"636" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly;"><![endif]--><div style=3D"margin:0 auto;max-width:636px"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%" automation-id=3D"undefined"><tbody><=
+tr><td style=3D"direction:ltr;font-size:0;padding:0;text-align:center"><!--=
+[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td class=3D"" width=3D"636px" ><table role=3D"present=
+ation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"1=
+6" style=3D"vertical-align:top;height:16px;"><![endif]--><div style=3D"heig=
+ht:16px">&nbsp;</div><!--[if mso | IE]></td></tr></table></td></tr><tr><td =
+align=3D"center" class=3D"" width=3D"636px" ><![endif]--><div style=3D"font=
+-family:helvetica;font-size:14px;line-height:1.43;text-align:center;color:#=
+666"><p style=3D"margin:0"><span style=3D"font-family:Helvetica;font-style:=
+normal;font-weight:400;font-size:14px;color:#0071dc">&nbsp;<a href=3D"https=
+://w-mt.co/rptrcks/comm-smart-app/services/tracking/clickTracker?redirectTo=
+=3D8NWqEf3tlcz1J7X1QCsNLRLDz0vlUjogDjWYvXgYjcPZHbeENwT18JI4et2dAdULe6Xl9B%2=
+BrgvrEvF8SQMFCtIX73Wm87F%2B0f1HFK52Ai70eUlX9Pavhy8YFtM%2B%2FTDt90EmoOH2Q2y%=
+2F1ZXAlm5cmKlSreyhgMDsMGyF9EUEqT6nyuiW80l33jf%2BpgX5Cb%2FLx9w%2FSImSWu4jID3=
+4cLh1Mem3mB3TLRW3cBnBS8bhgbgn3VoFa%2BkBc%2BRB%2BOH0J9VyqvvaHJSsz4ASwgX5PCAr=
+2Xl%2Fd8z%2BbJJfTZYJUT%2BjiUuwEjCFSDKczrgIhFqvR4FGK3KC4XSSztz0C417WHcSX2RVz=
+%2F%2FGLKlUvXCVz4fYNUWqbEUmRgKHlWdVAM%2BZ8z64IvYPJsLHZFnef2U6olAqwMUFjFPOV%=
+2Bj3PsdLV7V0CJRxT%2BvX4pLxoJummoq37Bf9yzPaCa0%2FKgpsUG2X8Pk4KEg%3D%3D&meta=
+=3Dl1frIiMyfvPZE0QVuGzNBOjaX7JX%2FGVZg65KP2MsQ7OBQ%2BI3bIe5gtEIIBdwDIdapubd=
+lQpcXltmAl08Z0biYRlZEPPOfeW9ttLUhHKZK4UAh62Rxu8tKM%2BA7AAwj7AGTFPFwZsmkw5NS=
+X7IgJnGxRVJnsddqFnxdLpQZV5FI0vp3FuRQoBehMd8tbW3wOPUVYxr6zNQMsabSxwq3HK5BQ%3=
+D%3D&iv=3D9cWyp8kCaJgoKHXwv39zTA%3D%3D" style=3D"text-decoration:underline;=
+color:#0071dc">Shipping</a> &nbsp;|</span><span style=3D"font-family:Helvet=
+ica;font-style:normal;font-weight:400;font-size:14px;line-height:14px;color=
+:#0071dc">&nbsp; <a href=3D"https://w-mt.co/rptrcks/comm-smart-app/services=
+/tracking/clickTracker?redirectTo=3D47MOV6ZMrgYPMD2xsEctHjwIM9a8txuXogTjsE8=
+x5ayMbdwaQwHdRgYFZmEwHCid%2FWO0Xz1r%2F5R1UAZcktI%2FV5PNXbB99mO5BTmfseMzhxQ%=
+2Ba67VjOqDbt4y52uJCp1SXHaPJ3r84Q%2BcU8LgJYKJBy6UFLrZPS95JQmQSWKU6kOK0hSJzK8=
+cN0uO8duSM3XyEDp7kJ0M%2FrJffRyQO4g25ebzB1UzaXoSaN%2FjsVGtQDp67ovOjSe6iYHAMI=
+faETRjQ%2FjbkEsfyZqFyHpDwcdXkQ56g6P0dw%2FOKi87rdlExqyQfrGhWIRp4SCE6I9mw0Mg%=
+2B%2FfyxXwyAp4llhVYvr6RgDAMRRKdOqpWsLjfM4q7BhOi%2FYja%2BV9NI40wCl1DR%2BPgUE=
+trr0PzpHXItGT6eiBrG5vh028O5aef8pA57SVpxlklwdEyqEpy1mSWCvqOB1TDZJ0Gagl8P3t9R=
+dpSd4uOiwjzQWrBXtk3MwJ4XtDM3Hs%3D&meta=3DZvk9jL8NQRFHEqV%2BDw3n1822Au4W8yXR=
+AkLQPxuUS%2Fug5WI2y0dJycththigUElmoYFg%2Bzf38Wr24ubF25DLYX3O5lG%2BYxSEqt96x=
+lchRx4j8%2FoU%2B4mkxhkgDKnLCqNkPnGO9S8R0wz0GX5lY6OPiqjpbqphsA9fhpZGcd5tZuXy=
+BuX4LyigaC8VlanA18zL4llcsJ2u9qd9tiztRWudcA%3D%3D&iv=3DJdAWUoClSWFIJ6prvXzFX=
+A%3D%3D" style=3D"text-decoration:underline;color:#0071dc">Return Policy</a=
+> &nbsp;|</span><span style=3D"font-family:Helvetica;font-style:normal;font=
+-weight:400;font-size:14px;line-height:14px;color:#0071dc">&nbsp; <a href=
+=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tracking/clickTracker?r=
+edirectTo=3DfbvfKjDUHUKiicT2mxXvtbdf9nw4FKNAOAG0BRVbqmVuvopi4jvhlIDZMbM179o=
+6caGCoMjw12ZdxyaUM4R03GDluwoHUWozpovRCskeMGgyuEdK%2BZ5bBWc7kxplaBFl98OeHICW=
+U5pXoem0juGSwdAz7HrOnp%2FiwX01mB1vedffRCkXFQAGqB0xL8nOVT8IHU%2F2b5CrG0fJQRi=
+1JCV%2FgDb%2BPaBHeumdA99L8v3gPqOthuiIdRjyfG54bypPo4B%2BIBR9JrKzq2EH2UphjhRS=
+u4JGZv5AQ45vrJ22r45n7z8lXhg%2B9y3A6G2NzgDQSSV%2FvuMjDMUDt3IyPFXZDZQSvy5JJBW=
+T9w%2FZRp7C1U%2FPHWt7gc%2BSyQykhXI39uE1e4pBSpY9M5OVdJPM35tEpkV%2BcFugUsewvt=
+6E5ZiFFV%2FLr%2BNYh%2FLZ5POJyK7i1FHZc1Ugc2UbiMeT4rGU%2BPnxmXeOHYEytLMicuYP5=
+yy5uKMyD11JlUyd9u1CXu7uMiUJa%2BXyqHSJdVV5BgMOk7YHWQnV5w%3D%3D&meta=3DtTMY5G=
+v%2Fl59ORDGQ9WUlFFwm%2BWI3KTIbOvS3qWZNZ%2BTYAxnbr%2FQxyJqIzju4t31QyZav8SYTz=
+1uGRGzl2IYB0KfaGV9bEziQD0vjW3pZhGftnBwO1%2BUacaLkpvCpUAy5Ka7dW1MmedwwChP2pH=
+X0rwgM5PMJDFcWftLN07dYcpmiurzWrfXVxGy%2FPhEQbqDgbnObGbDFYLH2mowEGZ8z8A%3D%3=
+D&iv=3Dvho2PvziyY%2B5ZrcbWPDsIw%3D%3D" style=3D"text-decoration:underline;c=
+olor:#0071dc">Terms of Use</a> &nbsp;|</span><span style=3D"font-family:Hel=
+vetica;font-style:normal;font-weight:400;font-size:14px;line-height:14px;co=
+lor:#0071dc">&nbsp; <a href=3D"https://w-mt.co/rptrcks/comm-smart-app/servi=
+ces/tracking/clickTracker?redirectTo=3DniPY5GLF%2B2Nr8eSALRqaY9jtx2oCxesYeO=
+Dq5B%2B%2BRc8Mt5rE0twiM1evRDW%2Fh44xjuJlKhwgFjm1%2Bwf7F4a%2FRvgLXB5WjYLwQ6P=
+vuj6TRg%2BxdCPN32bIcLt7QQlnSeT3q33SzrBbwTugJD4mkkIgwtM6gbfIcD5wQ%2FvwXnIh47=
+JXmq3tCm1eIBRcAADS6gLbKPBv6Y9lw4S08fzWgoCPe3ReeaPhCiZqkT5O5qHyY8xGaXR3HELbI=
+oWDWiZkk8P4dAluv%2B%2BaZ0yvDV%2Fs%2B9qYn2OVYvfxS9FUj6gzQSzpxa86%2BQokW3EFC1=
+UnWJCqfFtwwLxHVHo1RXIATzonH5d3lRc%2FpfC96BZkwWMVMV7p3uKdppshOsv%2BBeuZQDtHx=
+XhdOyVO76s10hF7%2B0vEqkMRXOz5ECykHdSj4VYrutoQMHOTzrAvcp2SxGlDGLQy%2FmHGX34g=
+VsM1Ws4sFApXCGgPyZ9sjl%2BA8PrqHYWGNAyWxeo%3D&meta=3DINa8kzIe9o5b4W%2BMHw6UU=
+puzigzEgrBZATQDZFTBBCrasMBctOdqAGThCREXgjnvIt6PJlWEmib6F4cRmbhbrFGEEfihCDMI=
+Duc9E%2BL3v%2B8cqIz4PT5Tvn%2BMobXp8b2TgVefRsyRFlII7OlbzyB6p0yLEdhj8VEnpcvhT=
+bUxLukgO%2BAMTwh0aERB4%2FML3IR3DWmClui6kTERFpxZqzvdTg%3D%3D&iv=3Dw4VDJZtJIT=
+VXDI6KCBw3iQ%3D%3D" style=3D"text-decoration:underline;color:#0071dc">Terms=
+ of Sale</a> &nbsp;|</span> <span style=3D"font-family:Helvetica;font-style=
+:normal;font-weight:400;font-size:14px;line-height:14px;color:#0071dc">&nbs=
+p; <a href=3D"https://w-mt.co/rptrcks/comm-smart-app/services/tracking/clic=
+kTracker?redirectTo=3DKsEqnY38VSgw%2FQG10SjXtWYGcS%2FDXhOH2aTzTI07cEPrtWFTJ=
+FNdqpOCg7ekTsJTT5pQGW2vgqYGwp0FGhWL0%2FFvEjbbTDLA2OTDZoHajDRpEIJSXc%2BCEalY=
+TDocz%2BoYxif%2F27qWRG%2B%2BphgX4jzJN6Aw1y5ECW%2FQoie3yyqSBcxiyfvDRSQbTicLf=
+zSdGgN%2FxoNbyADyg4siq3AvP8jvSPZI%2Fu5UMFM8NTKyTxQKqHLRpKjAeRMdPeAPOYfdB%2F=
+KW5wnCSCXEferGYz7qK%2BZq2USCu%2FR6GsM%2BmhvUXufpGjTdVW%2FcewuiZWBTYO9Xg9AXh=
+JYfEf2jk86H8FP5vdIg%2BN0lHWBkOUQTGpoUd%2FZPkxpOow%2FsmXLS4cxO5V4gOWus2U7Mzr=
+%2FHm4ZP1TkA6%2BPUq28a%2FzPrI7rS6weTAAfnth19lMy449N5V0DQ52FOUGry&meta=3DmG%=
+2BYaBymX4lbC9NY%2F8VyiXeR2KQKNyuNy5ESsOey6gWbLANpfjs8kxHXJ%2FTNMxeQWASLAxN7=
+qD%2BIrWDVKpBhSZYWMCuaNgftpv%2Fe9kdYuyIAAo8y6knHZ8c1b4t84mV%2FaTsRI7Kh62bBl=
+t5NcibC2O2V6Eys%2BqbEfEBtuGkVNm50YC63EVRbxxtpE3WtBWYQmM%2B7JvVswOnmAtbLT%2B=
+r9FQ%3D%3D&iv=3D%2BUeWnIhGQYsE9jrP%2FOFSTg%3D%3D" style=3D"text-decoration:=
+underline;color:#0071dc">Privacy Notice</a> &nbsp;</span></p></div><!--[if =
+mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><!-=
+-[if mso | IE]></td></tr></table><![endif]--></td></tr><tr><td style=3D"fon=
+t-size:0;padding:0;word-break:break-word"><!--[if mso | IE]><table align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=
+=3D"width:636px;" width=3D"636" ><tr><td style=3D"line-height:0px;font-size=
+:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0 auto=
+;max-width:636px"><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"width:100%" automation-id=3D=
+"undefined"><tbody><tr><td style=3D"direction:ltr;font-size:0;padding:0;tex=
+t-align:center"><!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" width=3D"636px" ><t=
+able role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+><tr><td height=3D"16" style=3D"vertical-align:top;height:16px;"><![endif]-=
+-><div style=3D"height:16px">&nbsp;</div><!--[if mso | IE]></td></tr></tabl=
+e></td></tr><tr><td align=3D"center" class=3D"" width=3D"636px" ><![endif]-=
+-><div style=3D"font-family:helvetica;font-size:14px;line-height:1.43;text-=
+align:center;color:#242424"><p style=3D"margin:0;color:#515357;font-size:14=
+px;font-family:Helvetica;font-weight:700;line-height:20px;word-wrap:break-w=
+ord">Walmart Canada Corp.<br>1940 Argentia Road Mississauga, ON L5N 1P9<br>=
+=C2=A9 Walmart 2023</p></div><!--[if mso | IE]></td></tr></table><![endif]-=
+-></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><![en=
+dif]--></td></tr></table></div><!--[if mso | IE]></td></tr></table><![endif=
+]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table></t=
+d></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE=
+]></td></tr></table></td></tr></table><![endif]--></td></tr></tbody></table=
+></div><!--[if mso | IE]></td></tr></table><![endif]-->
+<br/><img src=3D"https://00nvp.mjt.lu/oo/EAAABPByF6wAAAAAAAAAAIWx-roAAAAA2a=
+0AAAAAABnd1ABlfH7vOZISBJPZR7y73snCemU2-gATUCg/9045df31/e.gif" height=3D"1" =
+width=3D"1" alt=3D"" border=3D"0" style=3D"height:1px;width:1px;border:0;"/=
+>
+</body></html>=
