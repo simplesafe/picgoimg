@@ -1,0 +1,974 @@
+Delivered-To: jihongbest@gmail.com
+Received: by 2002:a05:7010:7e29:b0:36a:b77b:6f4e with SMTP id r41csp3145047mdo;
+        Wed, 28 Jun 2023 20:49:13 -0700 (PDT)
+X-Google-Smtp-Source: ACHHUZ6OxG56XiVIZrNSdmpW+mfawJqdqIADXHSCCnklkLKiANLHzG0l4aE4JiOIfIdEDp31T7OP
+X-Received: by 2002:a05:6214:2349:b0:621:680d:55bf with SMTP id hu9-20020a056214234900b00621680d55bfmr43473680qvb.22.1688010553658;
+        Wed, 28 Jun 2023 20:49:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1688010553; cv=none;
+        d=google.com; s=arc-20160816;
+        b=sjpmQDBiueWvby8BWaKZj2izIHuJvFQtPm+9+Ced3l4+L7uTIQJVXq5rS6W3iP5K7x
+         uIkCdQfOnIuXZ7sczh3vmXm8dUK/R65PcAsZWYhj1ep8L7GuepxAf+LFjrbYn4+MtCKP
+         UuXBE5dR2uvlGGpWzjm8igG4dLbnrav/YVwlrZQ3p5J0XkLk1ZXFg1YpGmb6x7ZE5KYF
+         IZzcLML8gqyQt2gzDuGmBu/aS1TTPrdZS+YFODP6Fx+lU4bBKpISHpiQIrC6V+9YZWUe
+         U+b20teNvnb5xPAlT20k2LZzTgoIshXKxOJMnRb998FaK59GatqFRe98rcsNZ+jTJId2
+         kS2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:message-id:from:subject:content-disposition
+         :content-transfer-encoding:mime-version:date:dkim-signature
+         :dkim-signature;
+        bh=yBd4xhqS3mP1uBtWOSwZOOKUignBbkMW4zC1L55qhLc=;
+        fh=vKlhiYlKVy3wCGvAyQISidGnLJOSX6+abMXG6rkubZs=;
+        b=qkxy03NjJrp+gVazaUNNvrr3vdHI6vNrRk4HAmLkYNjpCApHPqCB2JfGMlwiUwgSfG
+         bRWpB3I1r1V5kGB109MBhnM6TS59OJ6M4IRwboie8wd7nfN1jXVi/Vhvkh9Xwh3hHJaL
+         vLgYToitPijdHM4XqOsxNHtbOHXXJZM0hmQva5/TZZjV3M+YpkrB3D20fYRc2+IcMiyP
+         x2rXU5fMgh15+lQaeRnJ8M9aIKcA3i9gdytIL4pywlE3/9L4gWJXwSjTlpXc1FcG1ieZ
+         KRr9csYi+nNsBwr638rvqsc4OuPQU53CS63Zgh3j7sXyy1gbUoG4paCl/u2vG7CQ3147
+         jE4A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tntsupermarket.com header.s=s3 header.b=AzqZyV02;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=IyZ+KsSz;
+       spf=pass (google.com: domain of bounces+12585527-a527-jihongbest=gmail.com@em7426.tntsupermarket.com designates 149.72.202.157 as permitted sender) smtp.mailfrom="bounces+12585527-a527-jihongbest=gmail.com@em7426.tntsupermarket.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=tntsupermarket.com
+Return-Path: <bounces+12585527-a527-jihongbest=gmail.com@em7426.tntsupermarket.com>
+Received: from wrqvcxwd.outbound-mail.sendgrid.net (wrqvcxwd.outbound-mail.sendgrid.net. [149.72.202.157])
+        by mx.google.com with ESMTPS id bp14-20020a05620a458e00b007654a7ac71dsi5845180qkb.315.2023.06.28.20.49.13
+        for <jihongbest@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Jun 2023 20:49:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+12585527-a527-jihongbest=gmail.com@em7426.tntsupermarket.com designates 149.72.202.157 as permitted sender) client-ip=149.72.202.157;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tntsupermarket.com header.s=s3 header.b=AzqZyV02;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=IyZ+KsSz;
+       spf=pass (google.com: domain of bounces+12585527-a527-jihongbest=gmail.com@em7426.tntsupermarket.com designates 149.72.202.157 as permitted sender) smtp.mailfrom="bounces+12585527-a527-jihongbest=gmail.com@em7426.tntsupermarket.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=tntsupermarket.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tntsupermarket.com;
+	h=mime-version:content-type:content-transfer-encoding:subject:from:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s3; bh=yBd4xhqS3mP1uBtWOSwZOOKUignBbkMW4zC1L55qhLc=;
+	b=AzqZyV023z/sWV/U9UZABFRQXwysT5hcwJYy4dnrVTVBJCIzfFAK3qb0miAtMSFAIQQU
+	Okyot2FleQYVEWAdjIunmZ6+Kr8Ln8lUqy9bFd8tlXUwaSf+dgPczP1HaBQuPFQ+TwNCW1
+	S9GjIBA8n465sv+bCTcgS6Eg6BIpR+3H74q6L3b+4cdv5Fgm2QJxvYyusEceZHyt02n7Bj
+	mEvwZesNxFTUbnbWX83u/NltrZD3m/fR63W/V2eM/8tUPi5lHf6ompsYWwjjY0vI7AT4zZ
+	hP7DT2pAbWeqU8MHySbgonr2Y2Xdruhi/+dxLSpQr4u/qGIXArVTdOHk5E6Yi7lA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=mime-version:content-type:content-transfer-encoding:subject:from:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=yBd4xhqS3mP1uBtWOSwZOOKUignBbkMW4zC1L55qhLc=;
+	b=IyZ+KsSzB7opQI4oM98eJIrUhCWUKBm7W9koVVFz024PDAVjnA6qhl6oTWOuUkIZKY99
+	91O26AyUC8mV9or6Ue2mzU1pT+X79AOuel6fMjKtTFFMrKXc9zUhd3bt+WaQq7RGq4atql
+	Eb/UD0BnuyytMOI+m98rz5Ros56CDsoOI=
+Received: by filterdrecv-8686869bcf-w6l9j with SMTP id filterdrecv-8686869bcf-w6l9j-1-649CFF38-17
+        2023-06-29 03:49:12.94366418 +0000 UTC m=+4248559.036108972
+Received: from localhost (unknown)
+	by geopod-ismtpd-1 (SG) with ESMTP
+	id JdsIe3xIRnK6X3R8VmtL9Q
+	for <jihongbest@gmail.com>;
+	Thu, 29 Jun 2023 03:49:12.866 +0000 (UTC)
+Date: Thu, 29 Jun 2023 03:49:13 +0000 (UTC)
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Subject: =?UTF-8?B?5b6I6auY5YW05pS25Yiw5oKo55qE6K6i5Y2V?=
+From: T&T Shop Online <customer.service@tntsupermarket.com>
+Message-ID: <JdsIe3xIRnK6X3R8VmtL9Q@geopod-ismtpd-1>
+X-Feedback-ID: 12585527:SG
+X-SG-EID: 
+ =?us-ascii?Q?HxHh=2FEFsR6xcZNlhXHtOFRdrybowXBytdMFDxlHnO4rwQnXWFra1VqbYk5=2FGkp?=
+ =?us-ascii?Q?Gc+H4u3Q6lpBk0pCVTGDmCvLxwnyRsenFeFb+VR?=
+ =?us-ascii?Q?EOztpHDheWOMLAgiBJF2KphRYzqLsJcheTvkM7i?=
+ =?us-ascii?Q?z+6ifNoDjY6G8ADpkcauZCg9Ka+aEcGXnu1qexn?=
+ =?us-ascii?Q?z9WbzPvg6mRg9h2DZu2M1XlPYPh5qmA1nQd7XWN?=
+ =?us-ascii?Q?K1W266gZsBbW1wSzhq=2FhZmL84olOO8AlLhxVbVs?=
+ =?us-ascii?Q?Kqut37NBx26uOYEibsEIl4mAJUU6btGR2sWVd1S?= =?us-ascii?Q?VE0=3D?=
+To: Jihong Han <jihongbest@gmail.com>
+X-Entity-ID: RGLlcpTAoCBEuE17pBKTRg==
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" style=3D'font-family: "Helveti=
+ca Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=
+=BB=91","Microsoft YaHei";'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <meta name=3D"viewport" content=3D"width=3D640, user-scalable=3Dno, vie=
+wport-fit=3Dcover">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <style type=3D"text/css">
+       =20
+
+        @import url("https://www.tntsupermarket.com/static/version168681502=
+2/frontend/Tnt/pc/zh_Hans_CN/css/email-fonts.min.css");@font-face{font-fami=
+ly:'iconfont';src:url('../fonts/iconfont/iconfont.eot');src:url('../fonts/i=
+confont/iconfont.eot?#iefix') format('embedded-opentype'),url('../fonts/ico=
+nfont/iconfont.woff2') format('woff2'),url('../fonts/iconfont/iconfont.woff=
+') format('woff'),url('../fonts/iconfont/iconfont.ttf') format('truetype'),=
+url('../fonts/iconfont/iconfont.svg#iconfont') format('svg')}.shipment-trac=
+k th{text-align:left}.shipment-track>tbody>tr>th,.shipment-track>tfoot>tr>t=
+h,.shipment-track>tbody>tr>td,.shipment-track>tfoot>tr>td{vertical-align:to=
+p}.shipment-track>thead>tr>th,.shipment-track>thead>tr>td{vertical-align:bo=
+ttom}.shipment-track>thead>tr>th,.shipment-track>tbody>tr>th,.shipment-trac=
+k>tfoot>tr>th,.shipment-track>thead>tr>td,.shipment-track>tbody>tr>td,.ship=
+ment-track>tfoot>tr>td{padding:0 10px}.email-items th{text-align:left}.emai=
+l-items>tbody>tr>th,.email-items>tfoot>tr>th,.email-items>tbody>tr>td,.emai=
+l-items>tfoot>tr>td{vertical-align:top}.email-items>thead>tr>th,.email-item=
+s>thead>tr>td{vertical-align:bottom}.email-items>thead>tr>th,.email-items>t=
+body>tr>th,.email-items>tfoot>tr>th,.email-items>thead>tr>td,.email-items>t=
+body>tr>td,.email-items>tfoot>tr>td{padding:0 10px}@media only screen and (=
+max-width:639px){.rma-items td,.rma-items th{font-size:12px !important;padd=
+ing:5px !important}}@media only screen and (max-width:479px){.email-summary=
+ h1{font-size:24px !important}.order-details .address-details,.order-detail=
+s .method-info{display:block;padding:10px 0 !important;width:auto !importan=
+t}.order-details .address-details h3,.order-details .method-info h3{margin-=
+bottom:5px !important;margin-top:0 !important}}.email-items{overflow-x:auto=
+;overflow-y:hidden;width:100%;-ms-overflow-style:-ms-autohiding-scrollbar;-=
+webkit-overflow-scrolling:touch}
+    </style>
+<style type=3D"text/css">@import url("https://www.tntsupermarket.com/static=
+/version1686815022/frontend/Tnt/pc/zh_Hans_CN/css/email-fonts.min.css");
+@font-face {font-family: "iconfont";src: url("../fonts/iconfont/iconfont.eo=
+t");src: url("../fonts/iconfont/iconfont.eot?#iefix") format("embedded-open=
+type"),url("../fonts/iconfont/iconfont.woff2") format("woff2"),url("../font=
+s/iconfont/iconfont.woff") format("woff"),url("../fonts/iconfont/iconfont.t=
+tf") format("truetype"),url("../fonts/iconfont/iconfont.svg#iconfont") form=
+at("svg");}.footer a:-webkit-link{color: #fff !important;}.footer .footer-n=
+otices a:hover,.footer .footer-notices a:focus,.footer .footer-notices a:ac=
+tive{color: #dcdcdc; text-decoration: none;}.footer .contact-us a:-webkit-l=
+ink{color: #fff !important;}</style>
+</head>
+<body style=3D'background-color: #fff; color: #333; font-size: 18px; font-f=
+amily: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=
+=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>
+
+
+<!-- Begin wrapper table -->
+<table class=3D"wrapper" width=3D"100%" style=3D'font-family: "Helvetica Ne=
+ue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=
+=91","Microsoft YaHei"; border-collapse: collapse;'>
+    <tr>
+        <td class=3D"wrapper-inner" align=3D"center" style=3D"font-size: 18=
+px;">
+            <table class=3D"main" align=3D"center" style=3D'font-family: "H=
+elvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=
+=85=E9=BB=91","Microsoft YaHei"; border-collapse: collapse; width: 640px; m=
+argin: auto; letter-spacing: 0;'>
+                <tr>
+                    <td class=3D"header" style=3D"font-size: 18px; height: =
+100px; text-align: center; background-color: #007852;">
+                        <a class=3D"logo" href=3D"https://u12585527.ct.send=
+grid.net/ls/click?upn=3DZKo8TQdXKCDKSH1B4o97dIuK8v-2BK-2BrekTW5arA7U-2B3dpX=
+Zm4MouoTtaIZtZ7-2BLLnI36y_PPpt09HhzqsXLDSdbEYf6MKgZtGmqrX6tkzAUaxzgmCxArUj5=
+q5oiFV8gK-2Bo0-2FdZx2LGqnRtInZ7g6DBrULXHLcAGLPFdoY2zkPJ5-2FjxQMkiP9-2FXd7lN=
+gVbFYaeTvK-2F-2BWY0MsEzAhAy2k78Cryvd48fLYZTpy0yWRbhno-2B3bVAQiYJfX-2FVrOWha=
+EZatxP0Ofmy7BoO4Zl0BptdaNzBx56Q-3D-3D" style=3D'font-family: "Helvetica Neu=
+e",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91=
+","Microsoft YaHei"; color: #007852; display: block; font-size: 0;'>
+                            <img width=3D"180" src=3D"https://www.tntsuperm=
+arket.com/static/version1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email=
+/logo_email.png" alt=3D"=E5=A4=A7=E7=BB=9F=E5=8D=8E" border=3D"0" style=3D'=
+font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=
+=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=3D"main-content" style=3D"font-size: 18px; pa=
+dding: 20px 13px 20px; background-color: #f5f5f5;">
+                    <!-- Begin Content -->
+
+<div class=3D"progress-bar" style=3D'font-family: "Helvetica Neue",Helvetic=
+a,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsof=
+t YaHei"; margin: auto; text-align: center;'>
+    <img src=3D"https://www.tntsupermarket.com/static/version1686815022/fro=
+ntend/Tnt/pc/zh_Hans_CN/Magento_Email/progress-ordered.png" alt=3D"progress=
+" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif=
+,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>
+   =20
+        <table class=3D"progress-table" style=3D'font-family: "Helvetica Ne=
+ue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=
+=91","Microsoft YaHei"; border-collapse: collapse; width: 540px; margin: 0 =
+auto 5px;'>
+            <tr>
+                <td class=3D"green" width=3D"34%" style=3D"color: #007852; =
+font-size: 15px; text-align: center;">=E8=AE=A2=E5=8D=95=E5=B7=B2=E6=94=B6=
+=E5=88=B0</td>
+                <td width=3D"33%" style=3D"font-size: 15px; text-align: cen=
+ter;">=E8=AE=A2=E5=8D=95=E5=B7=B2=E5=AF=84=E5=87=BA</td>
+                <td width=3D"33%" style=3D"font-size: 15px; text-align: cen=
+ter;">=E8=AE=A2=E5=8D=95=E5=B7=B2=E9=80=81=E8=BE=BE</td>
+            </tr>
+        </table>
+   =20
+</div>
+<div style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-se=
+rif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>
+    <table style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,s=
+ans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; border-=
+collapse: collapse; width: 100%;'>
+        <tr>
+            <td class=3D"email-content" style=3D"font-size: 18px; padding: =
+20px; background-color: #fff;">
+                <table style=3D'font-family: "Helvetica Neue",Helvetica,Ver=
+dana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaH=
+ei"; border-collapse: collapse; width: 100%;'>
+                    <tr>
+                        <td class=3D"has-line-space" style=3D"font-size: 18=
+px; padding-bottom: 27px;">
+                            <div class=3D"greeting" style=3D'font-family: "=
+Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=
+=9B=85=E9=BB=91","Microsoft YaHei";'>=E6=82=A8=E5=A5=BD Jihong=EF=BC=8C</di=
+v>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=3D"has-line-space" style=3D"font-size: 18=
+px; padding-bottom: 27px;">
+                           =20
+                                <p style=3D"margin-top: 0; margin-bottom: 1=
+0px;">=E6=88=91=E4=BB=AC=E5=B7=B2=E7=BB=8F=E6=94=B6=E5=88=B0=E6=82=A8=E7=9A=
+=84=E8=AE=A2=E5=8D=95=EF=BC=8C=E6=82=A8=E5=B0=86=E4=BC=9A=E5=9C=A8=E5=8C=85=
+=E8=A3=B9=E5=AF=84=E5=87=BA=E5=90=8E=E6=94=B6=E5=88=B0=E9=82=AE=E4=BB=B6=E9=
+=80=9A=E7=9F=A5=E3=80=82</p>
+                                <div style=3D'font-family: "Helvetica Neue"=
+,Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91",=
+"Microsoft YaHei";'>=E5=A6=82=E6=9E=9C=E6=82=A8=E9=9C=80=E8=A6=81=E6=9F=A5=
+=E7=9C=8B=E6=AD=A4=E8=AE=A2=E5=8D=95=E7=8A=B6=E6=80=81=EF=BC=8C=E8=AF=B7=E7=
+=99=BB=E9=99=86=E8=87=B3<a class=3D"text-underline" href=3D"https://u125855=
+27.ct.sendgrid.net/ls/click?upn=3DZKo8TQdXKCDKSH1B4o97dIuK8v-2BK-2BrekTW5ar=
+A7U-2B3elXvrPSiGb0r6zuh7ss4MkBVzM00R5jhj3pUYbrURJaw-3D-3DOd6u_PPpt09HhzqsXL=
+DSdbEYf6MKgZtGmqrX6tkzAUaxzgmCxArUj5q5oiFV8gK-2Bo0-2FdZTMfnK1GYiRO9dai3x3Wp=
+PPtQ-2FNJfRAGsSA7mRCEjOoKsrfcaN0no-2Fh4nIny9hj8u7YoQkdxqcQGGkCHyBDA7ercga-2=
+FvYzEjD2MsKZWZPx2JYGsjXuZQ0bBpWPo-2FRwGnF4NCQD3P-2FCMvQEM-2FNj-2BbWSg-3D-3D=
+" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif=
+,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; color: #007852; =
+text-decoration: underline;'>=E6=88=91=E7=9A=84=E8=B4=A6=E6=88=B7</a>=E3=80=
+=82</div>
+                           =20
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=3D"font-size: 18px;">
+                            <div style=3D'font-family: "Helvetica Neue",Hel=
+vetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Mic=
+rosoft YaHei";'>=E6=84=9F=E8=B0=A2=E6=82=A8=E5=85=89=E4=B8=B4=E5=A4=A7=E7=
+=BB=9F=E5=8D=8E=E7=BD=91=E4=B8=8A=E8=B4=AD=E7=89=A9=EF=BC=81</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<table class=3D"order-info" style=3D'font-family: "Helvetica Neue",Helvetic=
+a,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsof=
+t YaHei"; border-collapse: collapse; margin-top: 20px; width: 100%;'>
+    <tr class=3D"email-information">
+        <td style=3D"font-size: 18px; vertical-align: top; padding: 0;">
+           =20
+            <table class=3D"order-details" style=3D'font-family: "Helvetica=
+ Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=
+=BB=91","Microsoft YaHei"; border-collapse: collapse; background-color: #ff=
+f; width: 100%;'>
+                <tr>
+                    <td class=3D"bk-bg" colspan=3D"2" style=3D"font-size: 1=
+8px; background-color: #007852; padding: 0 20px; color: #fff; font-weight: =
+700;">
+                        <h1 style=3D"font-size: 30px; color: #fff; height: =
+50px; line-height: 50px; margin: 0; font-weight: 700;">=E8=AE=A2=E5=8D=95=
+=E5=8F=B7 #000932655</h1>
+                    </td>
+                </tr>
+                <tr class=3D"pickup_date_time">
+                   =20
+                    <td class=3D"address-details" style=3D"font-size: 18px;=
+ vertical-align: top; width: 50%; padding: 20px;">
+                        <p class=3D"green" style=3D"color: #007852; font-we=
+ight: 600; margin: 0 0 16px;">=E9=82=AE=E5=AF=84=E8=87=B3</p>
+                        <div style=3D'font-family: "Helvetica Neue",Helveti=
+ca,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microso=
+ft YaHei";'>
+<p class=3D"name">Jihong Han</p>
+16419 53 St NW<br>
+
+
+
+Edmonton,  Alberta, T5Y 0H4<br><br>
+ <a href=3D"tel:416-559-6089" style=3D'font-family: "Helvetica Neue",Helvet=
+ica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Micros=
+oft YaHei"; color: #007852;'>416-559-6089</a>
+
+</div>
+                    </td>
+                   =20
+
+                   =20
+                    <td class=3D"address-details" style=3D"font-size: 18px;=
+ vertical-align: top; width: 50%; padding: 20px;">
+                        <p class=3D"green" style=3D"color: #007852; font-we=
+ight: 600; margin: 0 0 16px;">=E6=8F=90=E8=B4=A7=E6=97=A5=E6=9C=9F</p>
+                        <div style=3D'font-family: "Helvetica Neue",Helveti=
+ca,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microso=
+ft YaHei";'></div>
+                    </td>
+                   =20
+                </tr>
+            </table>
+                <table class=3D"email-items" style=3D'font-family: "Helveti=
+ca Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=
+=BB=91","Microsoft YaHei"; border-collapse: collapse; border-spacing: 0; ma=
+x-width: 100%; border: 1px solid #d1d1d1; border-top: 1px solid #f5f5f5; bo=
+rder-right: none; border-bottom: none; border-left: none; background-color:=
+ #fff; width: 100%;'>
+<thead><tr>
+<th class=3D"item-sku" style=3D"font-size: 18px; text-align: left; vertical=
+-align: bottom; padding: 20px 20px 0; font-weight: 600; color: #007852; bac=
+kground-color: #fff;">=E5=95=86=E5=93=81=E5=8F=B7=E7=A0=81</th>
+<th class=3D"item-info" style=3D"font-size: 18px; text-align: left; vertica=
+l-align: bottom; padding: 20px 20px 0; font-weight: 600; color: #007852; ba=
+ckground-color: #fff;">=E5=95=86=E5=93=81=E5=90=8D=E7=A7=B0</th>
+<th class=3D"item-qty" style=3D"font-size: 18px; vertical-align: bottom; pa=
+dding: 20px 20px 0; font-weight: 600; color: #007852; background-color: #ff=
+f; text-align: center;">=E6=95=B0=E9=87=8F</th>
+<th class=3D"item-price" style=3D"font-size: 18px; vertical-align: bottom; =
+padding: 20px 20px 0; font-weight: 600; color: #007852; background-color: #=
+fff; text-align: right;">=E4=BB=B7=E6=A0=BC</th>
+</tr></thead>  <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>78847201</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E4=B9=90=E5=A4=A9=E7=BB=BF=E8=8C=B6=E5=B7=A7=
+=E5=85=8B=E5=8A=9B=E6=B4=BE 336=E5=85=8B</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$6.01</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>74157301</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=A5=87=E4=B9=8B=E5=91=B3=E8=91=A1=E5=BC=8F=
+=E8=9B=8B=E5=8D=B7 454g</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$10.69</span>=
+   </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>66913901</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E4=B9=90=E5=A4=A9=E5=B7=A7=E5=85=8B=E5=8A=9B=
+=E6=B4=BE 28=E5=85=8Bx12</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$5.59</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>70805601</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=A4=A7=E7=BB=9F=E5=8D=8E=E6=9D=82=E7=B2=AE=
+=E6=B2=99=E7=90=AA=E7=8E=9B228=E5=85=8B</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$2.48</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>76979201</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E7=9A=87=E6=97=8F=E7=BA=A2=E8=B1=86=E4=B9=B3=
+=E6=9E=9C180=E5=85=8B</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$3.35</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>76979101</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E7=9A=87=E6=97=8F=E6=8A=B9=E8=8C=B6=E4=B9=B3=
+=E6=9E=9C</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$3.35</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>66081801</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E7=9B=9B=E9=A6=99=E7=8F=8D=E6=9E=9C=E5=86=BB=
+=E6=A4=B0=E6=9E=9C=E6=A1=B6 1500g</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$10.68</span>=
+   </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>67658301</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=B7=A8=E8=AE=B0=E9=BB=91=E8=8A=9D=E9=BA=BB=
+=E6=9D=8F=E4=BB=81=E9=A5=BC 260g</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$8.88</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>66628501</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=B7=A8=E8=AE=B0=E5=8E=9F=E7=B2=92=E6=9D=8F=
+=E4=BB=81=E9=A5=BC=E7=9B=92 260g</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$8.88</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>52130201</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=AE=B6=E5=A5=BD=E6=9C=88=E5=9C=86=E8=8E=B2=
+=E8=93=89=E8=9B=8B=E9=BB=84=E9=85=A5 (360g)</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$15.99</span>=
+   </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>78841001</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=A4=A7=E7=BB=9F=E5=8D=8E=E9=BB=91=E7=B3=96=
+=E6=B2=99=E7=90=AA=E7=8E=9B228=E5=85=8B</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$2.48</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>50605601</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=A4=A7=E7=BB=9F=E5=8D=8E=E5=87=A4=E6=A2=A8=
+=E9=85=A5=E7=A4=BC=E7=9B=92588=E5=85=8B</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$9.88</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>76023501</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">MK=E7=B4=85=E5=86=AC=E8=94=AD=E5=85=AC=E6=B9=
+=AF=E9=BA=B5</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$4.98</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>74646301</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=A4=A7=E7=BB=9F=E5=8D=8E=E5=B1=B1=E4=B8=9C=
+=E6=8B=89=E9=9D=A2(=E7=BB=86=E6=9D=A1) 1.8kg</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$6.88</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>78146301</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E5=8F=B0=E6=B9=BE=E6=97=A5=E6=AD=A3=E9=80=9F=
+=E5=8F=91=E9=85=B5=E6=AF=8D 12gx4=E5=8C=85</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$3.89</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>64593401</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">=E6=9D=8E=E9=94=A6=E8=AE=B0=E7=89=B9=E7=BA=A7=
+=E8=80=81=E6=8A=BD500=E6=AF=AB=E5=8D=87</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$2.88</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>50692701</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">T&amp;T=E5=8E=A8=E7=94=A8=E7=B1=B3=E9=85=9210=
+% 600ml</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$2.68</span> =
+  </p></td>
+</tr>
+</tbody>   <tbody> <tr>
+<td class=3D"item-sku" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;"=
+>50692901</td>
+<td class=3D"item-info" style=3D"font-size: 18px; vertical-align: top; padd=
+ing: 10px 20px 0; border-top: none; text-align: left; padding-bottom: 20px;=
+">
+<p class=3D"product-name" style=3D"margin-top: 0; max-width: 280px; margin-=
+bottom: 0; font-weight: 400;">T&amp;T=E5=8E=A8=E7=94=A8=E8=8A=B1=E9=9B=95=
+=E9=85=9210% 600ml</p>       </td>
+<td class=3D"item-qty" style=3D"font-size: 18px; vertical-align: top; paddi=
+ng: 10px 20px 0; border-top: none; text-align: center; padding-bottom: 20px=
+;"><p style=3D"margin-top: 0; margin-bottom: 10px; min-width: 70px;">1 </p>=
+</td>
+<td class=3D"item-price" style=3D"font-size: 18px; vertical-align: top; pad=
+ding: 10px 20px 0; border-top: none; text-align: right; padding-bottom: 20p=
+x;"><p style=3D"margin-top: 0; margin-bottom: 10px;">    <span class=3D"pri=
+ce" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-ser=
+if,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei";'>$2.68</span> =
+  </p></td>
+</tr>
+</tbody>  <tfoot class=3D"order-totals" style=3D"font-weight: 400;"> <tr cl=
+ass=3D"order-summery"><th class=3D"green" colspan=3D"4" style=3D"font-size:=
+ 18px; vertical-align: top; color: #007852; text-align: left; background-co=
+lor: #fff; border: none; padding: 20px 20px 0; border-top: 1px solid #f5f5f=
+5; font-weight: 600;">=E8=AE=A2=E5=8D=95=E5=B0=8F=E8=AE=A1</th></tr>  <tr c=
+lass=3D"subtotal">
+<th colspan=3D"3" scope=3D"row" style=3D"font-size: 18px; vertical-align: t=
+op; border-top: 0; padding-top: 0; padding: 10px 0 0 20px; text-align: left=
+; background-color: #fff; border: none; font-weight: 400;"> =E5=B0=8F=E8=AE=
+=A1 </th>
+<td data-th=3D"=E5=B0=8F=E8=AE=A1" style=3D"font-size: 18px; vertical-align=
+: top; border-top: 0; padding-top: 0; padding: 10px 20px 0 0; text-align: r=
+ight; background-color: #fff; border: none; font-weight: 400;"><span class=
+=3D"price" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,s=
+ans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; white-s=
+pace: nowrap;'>$112.25</span></td>
+</tr>   <tr class=3D"shipping">
+<th colspan=3D"3" scope=3D"row" style=3D"font-size: 18px; vertical-align: t=
+op; border-top: 0; font-weight: 400; padding-top: 0; padding: 10px 0 0 20px=
+; text-align: left; background-color: #fff; border: none;"> =E9=82=AE=E5=AF=
+=84=E8=B4=B9 </th>
+<td data-th=3D"=E9=82=AE=E5=AF=84=E8=B4=B9" style=3D"font-size: 18px; verti=
+cal-align: top; border-top: 0; padding-top: 0; padding: 10px 20px 0 0; text=
+-align: right; background-color: #fff; border: none;"><span class=3D"price"=
+ style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,=
+"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; white-space: nowr=
+ap;'>$4.49</span></td>
+</tr>   <tr class=3D"pickupfee">
+<th colspan=3D"3" scope=3D"row" style=3D"font-size: 18px; vertical-align: t=
+op; border-top: 0; font-weight: 400; padding-top: 0; padding: 10px 0 0 20px=
+; text-align: left; background-color: #fff; border: none;"> =E6=89=8B=E7=BB=
+=AD=E8=B4=B9 </th>
+<td data-th=3D"=E6=89=8B=E7=BB=AD=E8=B4=B9" style=3D"font-size: 18px; verti=
+cal-align: top; border-top: 0; padding-top: 0; padding: 10px 20px 0 0; text=
+-align: right; background-color: #fff; border: none;"><span class=3D"price"=
+ style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,=
+"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; white-space: nowr=
+ap;'>$5.99</span></td>
+</tr>       <tr class=3D"totals-tax"> <th colspan=3D"3" scope=3D"row" style=
+=3D"font-size: 18px; vertical-align: top; border-top: 0; font-weight: 400; =
+padding-top: 0; padding: 10px 0 0 20px; text-align: left; background-color:=
+ #fff; border: none;"> =E7=A8=8E </th>
+<td data-th=3D"=E7=A8=8E" style=3D"font-size: 18px; vertical-align: top; bo=
+rder-top: 0; padding-top: 0; padding: 10px 20px 0 0; text-align: right; bac=
+kground-color: #fff; border: none;"><span class=3D"price" style=3D'font-fam=
+ily: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=
+=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; white-space: nowrap;'>$0.52</span=
+></td>
+</tr>    <tr class=3D"taxgst">
+<th colspan=3D"3" scope=3D"row" style=3D"vertical-align: top; border-top: 0=
+; font-weight: 400; padding-top: 0; padding: 10px 0 0 20px; text-align: lef=
+t; background-color: #fff; border: none; padding-left: 30px; font-style: it=
+alic; color: #666; font-size: 14px;"> GST </th>
+<td data-th=3D"GST" style=3D"vertical-align: top; border-top: 0; padding-to=
+p: 0; padding: 10px 20px 0 0; text-align: right; background-color: #fff; bo=
+rder: none; font-style: italic; color: #666; font-size: 14px;"><span class=
+=3D"price" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,s=
+ans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; white-s=
+pace: nowrap;'>$0.52</span></td>
+</tr>   <tr class=3D"otherfee">
+<th colspan=3D"3" scope=3D"row" style=3D"font-size: 18px; vertical-align: t=
+op; border-top: 0; font-weight: 400; padding-top: 0; padding: 10px 0 0 20px=
+; text-align: left; background-color: #fff; border: none;"> =E5=85=B6=E4=BB=
+=96=E8=B4=B9=E7=94=A8 </th>
+<td data-th=3D"=E5=85=B6=E4=BB=96=E8=B4=B9=E7=94=A8" style=3D"font-size: 18=
+px; vertical-align: top; border-top: 0; padding-top: 0; padding: 10px 20px =
+0 0; text-align: right; background-color: #fff; border: none;"><span class=
+=3D"price" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,s=
+ans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; white-s=
+pace: nowrap;'>$0.00</span></td>
+</tr>        <tr class=3D"grand_total">
+<th colspan=3D"3" scope=3D"row" style=3D"font-size: 18px; vertical-align: t=
+op; border-top: 0; padding-top: 0; padding: 10px 0 0 20px; text-align: left=
+; background-color: #fff; border: none; padding-bottom: 20px; font-weight: =
+600;"> <strong>=E6=80=BB=E9=A2=9D</strong> </th>
+<td data-th=3D"=E6=80=BB=E9=A2=9D" style=3D"font-size: 18px; vertical-align=
+: top; border-top: 0; padding-top: 0; padding: 10px 20px 0 0; text-align: r=
+ight; background-color: #fff; border: none; padding-bottom: 20px; font-weig=
+ht: 600;"><span class=3D"price" style=3D'font-family: "Helvetica Neue",Helv=
+etica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Micr=
+osoft YaHei"; white-space: nowrap;'>$123.25</span></td>
+</tr> </tfoot>
+</table>=20
+        </td>
+    </tr>
+</table>
+
+<!-- End Content -->
+                </td>
+            </tr>
+            <tr>
+                <td class=3D"footer" style=3D"font-size: 18px; background-c=
+olor: #007852; padding: 20px 33px 30px;">
+                    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,=
+"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; border-collapse: =
+collapse; width: 100%;'>
+                        <tr>
+                            <td colspan=3D"3" style=3D"font-size: 18px; pad=
+ding: 5px 0; color: #fff;"><h1 style=3D"font-size: 30px; color: #fff; margi=
+n-bottom: 0; margin-top: 0; font-weight: 700; line-height: 1.2;">=E8=81=94=
+=E7=B3=BB=E6=88=91=E4=BB=AC</h1></td>
+                        </tr>
+                        <tr class=3D"contact-us">
+                            <td colspan=3D"2" style=3D"font-size: 18px; pad=
+ding: 5px 0; color: #fff;">
+<img class=3D"email_image" src=3D"https://www.tntsupermarket.com/static/ver=
+sion1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email/email.png" alt=3D"e=
+mail" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-s=
+erif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; float: left;=
+ margin-top: 5px;'>=C2=A0=C2=A0=C2=A0<a class=3D"text-underline" href=3D"ma=
+ilto:Customer.service@tntsupermarket.com" style=3D'font-family: "Helvetica =
+Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=
+=91","Microsoft YaHei"; text-decoration: none; border: none; color: #fff;'>=
+Customer.service@tntsupermarket.com</a>
+</td>
+                            <td style=3D"font-size: 18px; padding: 5px 0; c=
+olor: #fff;">
+<img class=3D"phone_image" src=3D"https://www.tntsupermarket.com/static/ver=
+sion1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email/phone.png" alt=3D"p=
+hone" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-s=
+erif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; float: left;=
+ margin-top: 4px;'>=C2=A0=C2=A0=C2=A0<a class=3D"text-underline" href=3D"te=
+l:1-833-868-1616" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,=
+Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; =
+text-decoration: none; border: none; color: #fff;'>1-833-868-1616</a>
+</td>
+                        </tr>
+                        <tr class=3D"contact-us">
+                            <td colspan=3D"3" style=3D"font-size: 18px; pad=
+ding: 5px 0; color: #fff;">
+<img class=3D"service_image" src=3D"https://www.tntsupermarket.com/static/v=
+ersion1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email/service.png" alt=
+=3D"service" style=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial=
+,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; float=
+: left; margin-top: 2px; margin-right: 3px;'>=C2=A0=C2=A0=C2=A0<a class=3D"=
+text-underline" href=3D"https://u12585527.ct.sendgrid.net/ls/click?upn=3DZK=
+o8TQdXKCDKSH1B4o97dIuK8v-2BK-2BrekTW5arA7U-2B3ekTFirDpbGZ9llYK-2FQ4O3r5ARsj=
+DTEhGXX10Q2G-2FyTuckzFbK1bpvhIXOUSbxCJuk-3DS2bT_PPpt09HhzqsXLDSdbEYf6MKgZtG=
+mqrX6tkzAUaxzgmCxArUj5q5oiFV8gK-2Bo0-2FdZruLI3D2tZp7vtwvS0QXRne6W4fmRr-2BmT=
+xsusz2ZHTv8Kwp6LQaz4JX-2FdxocNKZIPrmtnO9ueCEHiS8CqB5uOwWtg-2BJ7q74MCH6olJDW=
+7ZWYT4lFl-2Fi7Juq77OLq8MonutOMCO-2Fe8-2BqQEk-2B4TAhPFig-3D-3D" style=3D'fon=
+t-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=
+=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; text-decoration: none; border:=
+ none; color: #fff;'>www.tntsupermarket.com/contactus</a>
+</td>
+                        </tr>
+                        <tr>
+                            <td colspan=3D"2" width=3D"65%" style=3D"font-s=
+ize: 18px; padding: 5px 0; color: #fff;">
+                                <table style=3D'font-family: "Helvetica Neu=
+e",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91=
+","Microsoft YaHei"; border-collapse: collapse; width: 100%;'>
+                                    <tr>
+                                        <td class=3D"letter-line" style=3D"=
+font-size: 18px; padding: 5px 0; color: #fff; line-height: 1.2;">
+                                            <h1 style=3D"font-size: 30px; c=
+olor: #fff; margin-bottom: 0; margin-top: 0; font-weight: 700; line-height:=
+ 1.2;">=E7=AB=8B=E5=8D=B3=E4=B8=8B=E8=BD=BD=E5=A4=A7=E7=BB=9F=E5=8D=8EApp</=
+h1>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class=3D"letter-line" style=3D"=
+font-size: 18px; padding: 5px 0; color: #fff; line-height: 1.2;">
+                                            =E9=A6=96=E5=8D=95=E7=A8=8E=E5=
+=89=8D=E6=BB=A1$50=E7=AB=8B=E5=87=8F$5
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td rowspan=3D"2" style=3D"font-size: 18px; pad=
+ding: 5px 0; color: #fff; text-align: center;">
+                                <img src=3D"https://www.tntsupermarket.com/=
+static/version1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email/qr-code.p=
+ng" alt=3D"qe-code" style=3D'font-family: "Helvetica Neue",Helvetica,Verdan=
+a,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"=
+;'>
+                                <p style=3D"margin-bottom: 16px;">=E6=89=AB=
+=E4=B8=80=E6=89=AB=EF=BC=8C=E7=AB=8B=E5=8D=B3=E4=BD=93=E9=AA=8C</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=3D"download" style=3D"font-size: 18px=
+; padding: 5px 0; color: #fff;"><a href=3D"https://u12585527.ct.sendgrid.ne=
+t/ls/click?upn=3DZKo8TQdXKCDKSH1B4o97dMEs1e123rIy7pCKvhXyKGJsZZQ516-2F4vb22=
+pCvR-2BAu0awnDUYqxoOYS45LO8u89xYhFZCdy011bY2gFAEUU67Y-3DLMC1_PPpt09HhzqsXLD=
+SdbEYf6MKgZtGmqrX6tkzAUaxzgmCxArUj5q5oiFV8gK-2Bo0-2FdZXIpuvtikGeMq7caZy7pcK=
+Ob0nWRis3Cnc7SEKf3Q50kw7ZTTtZ-2FU10FrJWXmTTAT-2FzSRepxA7HKEuie0Z1di0PqopOhZ=
+Ej5HJ9dAzg5IZIbuaH-2FCoPMNN7TNpx67W939TzXG2lrxLqmaK-2FMxSqnCxw-3D-3D" style=
+=3D'font-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=
+=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; border: none; color: =
+#fff; text-decoration: none;'><img src=3D"https://www.tntsupermarket.com/st=
+atic/version1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email/apple.png" =
+alt=3D"app-store" width=3D"159" style=3D'font-family: "Helvetica Neue",Helv=
+etica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Micr=
+osoft YaHei"; margin-bottom: 15px; max-width: 95%;'></a></td>
+                            <td class=3D"download" style=3D"font-size: 18px=
+; padding: 5px 0; color: #fff;"><a href=3D"https://u12585527.ct.sendgrid.ne=
+t/ls/click?upn=3DZKo8TQdXKCDKSH1B4o97dJadAtNqhVevzhQ0iWlYwn3gQuOBwd0877t7CB=
+AgNjjaPhyjaglfYX7GPQzvtckDuGB-2FeRTL-2FDipCGjJ1mYJi9o-3DJtKO_PPpt09HhzqsXLD=
+SdbEYf6MKgZtGmqrX6tkzAUaxzgmCxArUj5q5oiFV8gK-2Bo0-2FdZot5pz0nR8jMNuHHaj7ksp=
+2bdmagcf-2BbTZZD5Z4YXVrAmd1CGtjqgGdJMWNuTukVAyGETTMaUqSr5gOwasq8PVPEdmmcmkS=
+NCKrtH9gbgLClyO7xr614Nn07Rp4PyqVpTqAaj4UNKIWNj0kBTRkj7NA-3D-3D" style=3D'fo=
+nt-family: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=
+=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; border: none; color: #fff; =
+text-decoration: none;'><img src=3D"https://www.tntsupermarket.com/static/v=
+ersion1686815022/frontend/Tnt/pc/zh_Hans_CN/Magento_Email/google.png" alt=
+=3D"google" width=3D"159" style=3D'font-family: "Helvetica Neue",Helvetica,=
+Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91","Microsoft =
+YaHei"; margin-bottom: 15px; max-width: 95%;'></a></td>
+                        </tr>
+                    </table>
+                    <div class=3D"footer-notices" style=3D'font-family: "He=
+lvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=
+=85=E9=BB=91","Microsoft YaHei"; margin: auto; padding: 20px 6px; color: #d=
+cdcdc; font-size: 15px; text-align: center; border-top: 1px solid #a9ee6d; =
+letter-spacing: 0;'>
+                        =E6=9C=AC=E9=82=AE=E4=BB=B6=E7=94=B1T&amp;T Superma=
+rket Inc. =E5=8F=91=E9=80=81=E3=80=82=E5=A4=A7=E7=BB=9F=E5=8D=8E=E7=BD=91=
+=E4=B8=8A=E8=B4=AD=E7=89=A9=E7=94=B1T&amp;T Supermarket Inc. =E7=BB=8F=E8=
+=90=A5=E3=80=82=E8=BF=99=E5=B0=81=E9=82=AE=E4=BB=B6=E6=9C=89=E5=85=B3=E4=BA=
+=8E=E6=82=A8=E7=9A=84=E4=B8=AA=E4=BA=BA=E8=B4=A6=E6=88=B7=E4=BF=A1=E6=81=AF=
+=E6=88=96=E6=9C=80=E8=BF=91=E8=AE=A2=E5=8D=95=E4=BF=A1=E6=81=AF=E3=80=82=E6=
+=9C=AC=E9=82=AE=E4=BB=B6=E7=94=B1=E7=B3=BB=E7=BB=9F=E7=9B=B4=E6=8E=A5=E5=8F=
+=91=E5=87=BA=EF=BC=8C
+                        <div class=3D"footer-limit-width" style=3D'font-fam=
+ily: "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=
+=AF=E9=9B=85=E9=BB=91","Microsoft YaHei"; width: 85%; margin: auto;'>=E8=AF=
+=B7=E5=8B=BF=E5=9B=9E=E5=A4=8D=E3=80=82=E4=B8=BA=E7=A1=AE=E4=BF=9D=E6=82=A8=
+=E6=94=B6=E5=88=B0=E7=9B=B8=E5=85=B3=E8=AE=A2=E5=8D=95=E4=BF=A1=E6=81=AF=EF=
+=BC=8C=E8=AF=B7=E6=82=A8=E7=A1=AE=E4=BF=9D=E6=B7=BB=E5=8A=A0<a href=3D"mail=
+to:Customer.service@tntsupermarket.com" style=3D'font-family: "Helvetica Ne=
+ue",Helvetica,Verdana,Arial,sans-serif,"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=
+=91","Microsoft YaHei"; border: none; color: #fff; text-decoration: none;'>=
+Customer.service@tntsupermarket.com</a>=E8=87=B3=E6=82=A8=E7=9A=84=E9=82=AE=
+=E7=AE=B1=E8=81=94=E7=B3=BB=E4=BA=BA=E5=88=97=E8=A1=A8=E3=80=82</div>
+                    </div>
+                    <p class=3D"copyright" style=3D"margin: 0; color: #dcdc=
+dc; font-size: 15px; text-align: center;">
+                        @ 2023 T&amp;T Supermarket Inc.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+<!-- End wrapper table -->
+<img src=3D"https://u12585527.ct.sendgrid.net/wf/open?upn=3DGYM7fzQS8qx3izF=
+67wVGf-2FJDeH1GoSWzCaNOKrQlZxYtemx6obnEdrWYLtgbd47QbYwThlWuprhpTzSPHA1o87Rz=
+sTc2UofsAeMmvNufqPxQC3M-2BaT9I6aiZFBsAx2J4-2BDT-2BkUFoWvPye8t-2BqgC1Igvia-2=
+FMP6vMoGpnPd80Uxn5rgWAQDDXn79DR6hNDnSBh0-2Fa2zsnwdeYaBh7bEklvliiFcOrXb6ztOu=
+oB-2BslQjXQ-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"hei=
+ght:1px !important;width:1px !important;border-width:0 !important;margin-to=
+p:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-=
+left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padd=
+ing-right:0 !important;padding-left:0 !important;"/></body>
+</html>
+
